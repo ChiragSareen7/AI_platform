@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deterministic AI Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['DM Sans', 'system-ui', 'sans-serif'] },
+          colors: {
+            surface: { 900: '#0c0f1a', 800: '#12162a', 700: '#1a1f36', 600: '#252b42' },
+            accent: { 500: '#6366f1', 600: '#4f46e5', 400: '#818cf8' },
+            good: { bg: '#052e16', text: '#86efac', border: '#166534' },
+            bad:  { bg: '#450a0a', text: '#fca5a5', border: '#b91c1c' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #0c0f1a; }
+    .card { background: linear-gradient(145deg, #12162a 0%, #0f1320 100%); border: 1px solid rgba(99, 102, 241, 0.12); }
+    .badge-good { background: #052e16; color: #86efac; border: 1px solid #166534; }
+    .badge-bad  { background: #450a0a; color: #fca5a5; border: 1px solid #b91c1c; }
+    .loader { border: 2px solid #252b42; border-top-color: #6366f1; border-radius: 50%; width: 20px; height: 20px; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .metric-bar { height: 6px; border-radius: 3px; background: #1a1f36; overflow: hidden; }
+    .metric-bar-fill { height: 100%; border-radius: 3px; transition: width .3s ease; }
+  </style>
+</head>
+<body class="text-slate-200 min-h-screen antialiased">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+
+    <header class="mb-8">
+      <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Deterministic AI Dashboard</h1>
+      <p class="text-slate-400 mt-1 text-sm">Same input + same config + same knowledge base = exact same output. Factually grounded and verified.</p>
+    </header>
+
+    <section class="card rounded-2xl p-6 mb-6">
+      <h2 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-accent-500"></span>
+        Query
+      </h2>
+      <div class="flex gap-3 flex-wrap">
+        <input id="queryInput" type="text" placeholder="Ask about Nexora (e.g. hiring, product, policy)" class="flex-1 min-w-[200px] bg-surface-900 border border-surface-600 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-accent-500 focus:ring-1 focus:ring-accent-500/30 outline-none" />
+        <button id="btnSend" type="button" class="px-5 py-2.5 rounded-lg bg-accent-600 hover:bg-accent-500 text-white font-medium text-sm transition">Send</button>
+        <button id="btnDeterminism" type="button" class="px-5 py-2.5 rounded-lg bg-surface-600 hover:bg-surface-500 border border-surface-500 text-slate-300 font-medium text-sm transition">Run determinism test (3x)</button>
+      </div>
+    </section>
+
+    <section id="resultSection" class="card rounded-2xl p-6 mb-6 hidden">
+      <h2 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-accent-500"></span>
+        Response
+      </h2>
+      <div id="responseAnswer" class="text-slate-300 text-sm mb-4 whitespace-pre-wrap"></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+        <div>
+          <span class="text-xs text-slate-500 block mb-1">Confidence</span>
+          <div class="metric-bar"><div id="barConfidence" class="metric-bar-fill bg-accent-500" style="width: 0%"></div></div>
+          <span id="valConfidence" class="text-xs text-slate-400">0</span>
+        </div>
+        <div>
+          <span class="text-xs text-slate-500 block mb-1">Hallucination score</span>
+          <div class="metric-bar"><div id="barHallucination" class="metric-bar-fill bg-red-500" style="width: 0%"></div></div>
+          <span id="valHallucination" class="text-xs text-slate-400">0</span>
+        </div>
+        <div>
+          <span class="text-xs text-slate-500 block mb-1">Similarity score</span>
+          <div class="metric-bar"><div id="barSimilarity" class="metric-bar-fill bg-emerald-500" style="width: 0%"></div></div>
+          <span id="valSimilarity" class="text-xs text-slate-400">0</span>
+        </div>
+        <div>
+          <span class="text-xs text-slate-500 block mb-1">Cache</span>
+          <span id="valCached" class="inline-block px-2 py-0.5 rounded text-xs font-medium bg-surface-600 text-slate-400">—</span>
+        </div>
+      </div>
+      <div id="sourceBlock" class="mb-4 hidden">
+        <span class="text-xs text-slate-500 block mb-1">Source (exact sentence)</span>
+        <p id="responseSource" class="text-slate-400 text-sm"></p>
+      </div>
+      <div id="determinismBlock" class="hidden">
+        <span class="text-xs text-slate-500 block mb-1">Determinism check</span>
+        <p id="determinismResult" class="text-slate-400 text-sm"></p>
+      </div>
+    </section>
+
+    <section id="contextSection" class="card rounded-2xl p-6 mb-6 hidden">
+      <h2 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-accent-500"></span>
+        Context used
+      </h2>
+      <div id="contextList" class="space-y-3 text-sm text-slate-400"></div>
+    </section>
+
+    <section id="errorSection" class="card rounded-2xl p-6 mb-6 border-red-500/30 hidden">
+      <p id="errorText" class="text-red-400 text-sm"></p>
+    </section>
+
+    <section id="loadingSection" class="card rounded-2xl p-6 mb-6 hidden">
+      <div class="flex items-center gap-3 text-slate-400">
+        <div class="loader"></div>
+        <span id="loadingText">Running pipeline…</span>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const API_BASE = '';
+    const queryInput = document.getElementById('queryInput');
+    const btnSend = document.getElementById('btnSend');
+    const btnDeterminism = document.getElementById('btnDeterminism');
+    const resultSection = document.getElementById('resultSection');
+    const contextSection = document.getElementById('contextSection');
+    const errorSection = document.getElementById('errorSection');
+    const loadingSection = document.getElementById('loadingSection');
+
+    function showLoading(text) {
+      loadingSection.classList.remove('hidden');
+      resultSection.classList.add('hidden');
+      contextSection.classList.add('hidden');
+      errorSection.classList.add('hidden');
+      document.getElementById('loadingText').textContent = text || 'Running pipeline…';
+    }
+    function hideLoading() {
+      loadingSection.classList.add('hidden');
+    }
+    function showError(msg) {
+      errorSection.classList.remove('hidden');
+      document.getElementById('errorText').textContent = msg;
+    }
+    function hideError() {
+      errorSection.classList.add('hidden');
+    }
+
+    function renderResult(data) {
+      hideLoading();
+      hideError();
+      resultSection.classList.remove('hidden');
+      document.getElementById('responseAnswer').textContent = data.answer || '—';
+      const conf = Number(data.confidence) ?? 0;
+      const hall = Number(data.hallucinationScore) ?? 0;
+      const sim = Number(data.similarityScore) ?? 0;
+      document.getElementById('barConfidence').style.width = (conf * 100) + '%';
+      document.getElementById('valConfidence').textContent = conf.toFixed(2);
+      document.getElementById('barHallucination').style.width = (hall * 100) + '%';
+      document.getElementById('valHallucination').textContent = hall.toFixed(2);
+      document.getElementById('barSimilarity').style.width = (sim * 100) + '%';
+      document.getElementById('valSimilarity').textContent = sim.toFixed(2);
+      document.getElementById('valCached').textContent = data.cached ? 'Cached' : 'Fresh';
+      document.getElementById('valCached').className = data.cached ? 'inline-block px-2 py-0.5 rounded text-xs font-medium badge-good' : 'inline-block px-2 py-0.5 rounded text-xs font-medium bg-surface-600 text-slate-400';
+      const sourceBlock = document.getElementById('sourceBlock');
+      if (data.source) {
+        sourceBlock.classList.remove('hidden');
+        document.getElementById('responseSource').textContent = data.source;
+      } else {
+        sourceBlock.classList.add('hidden');
+      }
+      const detBlock = document.getElementById('determinismBlock');
+      if (data.deterministicCheck) {
+        detBlock.classList.remove('hidden');
+        const d = data.deterministicCheck;
+        document.getElementById('determinismResult').textContent = d.isDeterministic
+          ? 'Deterministic: yes (3 runs matched).'
+          : 'Deterministic: no. Avg similarity between runs: ' + (d.similarity != null ? d.similarity.toFixed(2) : '—');
+      } else {
+        detBlock.classList.add('hidden');
+      }
+      const chunks = data.contextChunks || [];
+      if (chunks.length > 0) {
+        contextSection.classList.remove('hidden');
+        const list = document.getElementById('contextList');
+        list.innerHTML = chunks.map((c, i) => {
+          const content = typeof c === 'string' ? c : (c.content || '');
+          const meta = typeof c === 'object' && (c.source || c.page) ? ` (${[c.source, c.page].filter(Boolean).join(', ')})` : '';
+          return '<div class="p-3 rounded-lg bg-surface-900 border border-surface-600"><span class="text-slate-500 text-xs">Chunk ' + (i + 1) + meta + '</span><p class="mt-1 text-slate-300">' + content.slice(0, 500) + (content.length > 500 ? '…' : '') + '</p></div>';
+        }).join('');
+      } else {
+        contextSection.classList.add('hidden');
+      }
+    }
+
+    async function sendQuery(runDeterminismCheck) {
+      const query = queryInput.value?.trim();
+      if (!query) {
+        showError('Please enter a query.');
+        return;
+      }
+      showLoading(runDeterminismCheck ? 'Running determinism test (3x)…' : 'Running pipeline…');
+      try {
+        const res = await fetch(API_BASE + '/deterministic-query', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query, runDeterminismCheck: !!runDeterminismCheck }),
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          showError(data.error || res.statusText || 'Request failed');
+          hideLoading();
+          return;
+        }
+        renderResult(data);
+      } catch (e) {
+        hideLoading();
+        showError(e.message || 'Network error');
+      }
+    }
+
+    btnSend.addEventListener('click', () => sendQuery(false));
+    btnDeterminism.addEventListener('click', () => sendQuery(true));
+    queryInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendQuery(false); });
+  </script>
+</body>
+</html>

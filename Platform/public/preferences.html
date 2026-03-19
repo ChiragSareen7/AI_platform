@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Preferences – AI Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #0f172a; }
+    input[type=range] { accent-color: #3b82f6; }
+    .toast { animation: fadeIn .3s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+  </style>
+</head>
+<body class="text-slate-200 min-h-screen">
+  <div class="max-w-2xl mx-auto px-4 py-8">
+
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h1 class="text-2xl font-bold">User Preferences</h1>
+        <p class="text-sm text-slate-400 mt-1">Define expectations for the AI agent</p>
+      </div>
+      <a href="/" class="text-sm px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 transition">Dashboard</a>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="hidden toast fixed top-6 right-6 px-4 py-2.5 rounded-lg text-sm font-medium shadow-lg z-50"></div>
+
+    <form id="prefsForm" class="bg-slate-900 rounded-xl border border-slate-800 p-6 space-y-5">
+
+      <!-- Max Latency -->
+      <div>
+        <label class="block text-sm font-medium text-slate-400 mb-1">Max Latency (ms)</label>
+        <input id="maxLatency" name="maxLatency" type="number" min="100" max="30000" step="100" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-500" />
+      </div>
+
+      <!-- Max Tokens -->
+      <div>
+        <label class="block text-sm font-medium text-slate-400 mb-1">Max Tokens</label>
+        <input id="maxTokens" name="maxTokens" type="number" min="50" max="4000" step="50" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-500" />
+      </div>
+
+      <!-- Max Cost -->
+      <div>
+        <label class="block text-sm font-medium text-slate-400 mb-1">Max Cost per request ($)</label>
+        <input id="maxCost" name="maxCost" type="number" min="0" max="1" step="0.001" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-500" />
+      </div>
+
+      <!-- Min Accuracy -->
+      <div>
+        <label class="block text-sm font-medium text-slate-400 mb-1">Min Accuracy: <span id="minAccuracyVal" class="text-blue-400">0.70</span></label>
+        <input id="minAccuracy" name="minAccuracy" type="range" min="0" max="1" step="0.05" class="w-full" />
+      </div>
+
+      <!-- Max Hallucination -->
+      <div>
+        <label class="block text-sm font-medium text-slate-400 mb-1">Max Hallucination: <span id="maxHallucinationVal" class="text-blue-400">0.30</span></label>
+        <input id="maxHallucination" name="maxHallucination" type="range" min="0" max="1" step="0.05" class="w-full" />
+      </div>
+
+      <!-- Min Relevance -->
+      <div>
+        <label class="block text-sm font-medium text-slate-400 mb-1">Min Relevance: <span id="minRelevanceVal" class="text-blue-400">0.50</span></label>
+        <input id="minRelevance" name="minRelevance" type="range" min="0" max="1" step="0.05" class="w-full" />
+      </div>
+
+      <!-- Min Confidence -->
+      <div>
+        <label class="block text-sm font-medium text-slate-400 mb-1">Min Confidence: <span id="minConfidenceVal" class="text-blue-400">0.50</span></label>
+        <input id="minConfidence" name="minConfidence" type="range" min="0" max="1" step="0.05" class="w-full" />
+      </div>
+
+      <!-- Response Type -->
+      <div>
+        <label class="block text-sm font-medium text-slate-400 mb-1">Response Type</label>
+        <select id="responseType" name="responseType" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-500">
+          <option value="balanced">Balanced</option>
+          <option value="concise">Concise</option>
+          <option value="detailed">Detailed</option>
+          <option value="strict">Strict (RAG only)</option>
+        </select>
+      </div>
+
+      <!-- Temperature -->
+      <div>
+        <label class="block text-sm font-medium text-slate-400 mb-1">Temperature: <span id="temperatureVal" class="text-blue-400">0.70</span></label>
+        <input id="temperature" name="temperature" type="range" min="0" max="1" step="0.05" class="w-full" />
+      </div>
+
+      <button type="submit" class="w-full py-2.5 bg-blue-600 hover:bg-blue-500 rounded-lg text-sm font-medium transition">Save Preferences</button>
+    </form>
+  </div>
+
+  <script>
+    const API = window.location.origin;
+    const $ = (id) => document.getElementById(id);
+
+    const SLIDERS = ['minAccuracy', 'maxHallucination', 'minRelevance', 'minConfidence', 'temperature'];
+    SLIDERS.forEach(id => {
+      $(id).addEventListener('input', () => {
+        $(id + 'Val').textContent = parseFloat($(id).value).toFixed(2);
+      });
+    });
+
+    function showToast(msg, ok) {
+      const t = $('toast');
+      t.textContent = msg;
+      t.className = `toast fixed top-6 right-6 px-4 py-2.5 rounded-lg text-sm font-medium shadow-lg z-50 ${ok ? 'bg-green-800 text-green-200' : 'bg-red-800 text-red-200'}`;
+      t.classList.remove('hidden');
+      setTimeout(() => t.classList.add('hidden'), 2500);
+    }
+
+    async function loadPrefs() {
+      try {
+        const res = await fetch(`${API}/preferences`);
+        const prefs = await res.json();
+        $('maxLatency').value = prefs.maxLatency ?? 2000;
+        $('maxTokens').value = prefs.maxTokens ?? 800;
+        $('maxCost').value = prefs.maxCost ?? 0.05;
+        $('minAccuracy').value = prefs.minAccuracy ?? 0.7;
+        $('maxHallucination').value = prefs.maxHallucination ?? 0.3;
+        $('minRelevance').value = prefs.minRelevance ?? 0.5;
+        $('minConfidence').value = prefs.minConfidence ?? 0.5;
+        $('responseType').value = prefs.responseType ?? 'balanced';
+        $('temperature').value = prefs.temperature ?? 0.7;
+        SLIDERS.forEach(id => {
+          $(id + 'Val').textContent = parseFloat($(id).value).toFixed(2);
+        });
+      } catch (err) {
+        showToast('Failed to load preferences', false);
+      }
+    }
+
+    $('prefsForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const body = {
+        maxLatency: Number($('maxLatency').value),
+        maxTokens: Number($('maxTokens').value),
+        maxCost: Number($('maxCost').value),
+        minAccuracy: Number($('minAccuracy').value),
+        maxHallucination: Number($('maxHallucination').value),
+        minRelevance: Number($('minRelevance').value),
+        minConfidence: Number($('minConfidence').value),
+        responseType: $('responseType').value,
+        temperature: Number($('temperature').value),
+      };
+      try {
+        const res = await fetch(`${API}/preferences`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        if (!res.ok) throw new Error('Save failed');
+        showToast('Preferences saved', true);
+      } catch (err) {
+        showToast('Error: ' + err.message, false);
+      }
+    });
+
+    loadPrefs();
+  </script>
+</body>
+</html>

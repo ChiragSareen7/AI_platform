@@ -1,0 +1,19 @@
+{
+  "versions": {},
+  "performance": {
+    "v1": {
+      "avgLatency": 9697.09090909091,
+      "avgTokens": 189.1818181818182,
+      "avgAccuracy": 0.1380155541990611,
+      "avgHallucination": 0.44783549783549775,
+      "usageCount": 11
+    },
+    "v3": {
+      "avgLatency": 13600.45,
+      "avgTokens": 259.85,
+      "avgAccuracy": 0.14872217918603298,
+      "avgHallucination": 0.41136363636363643,
+      "usageCount": 20
+    }
+  }
+}

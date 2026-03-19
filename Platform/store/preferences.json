@@ -1,0 +1,11 @@
+{
+  "maxLatency": 5000,
+  "maxTokens": 800,
+  "maxCost": 0.05,
+  "minAccuracy": 0.8,
+  "maxHallucination": 0.25,
+  "minRelevance": 0.7,
+  "minConfidence": 0.8,
+  "responseType": "balanced",
+  "temperature": 0.9
+}

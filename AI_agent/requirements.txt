@@ -1,0 +1,25 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.5
+python-dotenv==1.0.1
+
+# Let pip resolve mutually compatible LangChain packages for Python 3.13
+langchain
+langchain-community
+langchain-core
+langchain-text-splitters
+langchain-huggingface
+langchain-groq
+
+faiss-cpu==1.13.2
+qdrant-client
+langchainhub
+
+sentence-transformers
+transformers
+
+langsmith
+
+pypdf
+
+httpx==0.27.0
+

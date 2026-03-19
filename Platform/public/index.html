@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Agent Control & Observability</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['DM Sans', 'system-ui', 'sans-serif'] },
+          colors: {
+            surface: { 900: '#0c0f1a', 800: '#12162a', 700: '#1a1f36', 600: '#252b42' },
+            accent: { 500: '#6366f1', 600: '#4f46e5', 400: '#818cf8' },
+            good: { bg: '#052e16', text: '#86efac', border: '#166534' },
+            bad:  { bg: '#450a0a', text: '#fca5a5', border: '#b91c1c' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #0c0f1a; }
+    .card { background: linear-gradient(145deg, #12162a 0%, #0f1320 100%); border: 1px solid rgba(99, 102, 241, 0.12); }
+    .badge-good { background: #052e16; color: #86efac; border: 1px solid #166534; }
+    .badge-bad  { background: #450a0a; color: #fca5a5; border: 1px solid #b91c1c; }
+    .loader { border: 2px solid #252b42; border-top-color: #6366f1; border-radius: 50%; width: 20px; height: 20px; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .metric-bar { height: 6px; border-radius: 3px; background: #1a1f36; overflow: hidden; }
+    .metric-bar-fill { height: 100%; border-radius: 3px; transition: width .3s ease; }
+    input[type=range] { accent-color: #6366f1; }
+    .toast { animation: toastIn .25s ease; }
+    @keyframes toastIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="text-slate-200 min-h-screen antialiased">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+
+    <!-- Header -->
+    <header class="mb-10">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">AI Agent Control & Observability</h1>
+          <p class="text-slate-400 mt-1 text-sm">Monitor metrics, compare prompts, and tune for deterministic outputs</p>
+        </div>
+        <a href="/preferences.html" class="text-sm px-4 py-2 rounded-lg bg-surface-700 hover:bg-surface-600 border border-slate-700/50 text-slate-300 transition">Preferences</a>
+      </div>
+    </header>
+
+    <!-- Control Center -->
+    <section class="card rounded-2xl p-6 mb-8">
+      <h2 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-accent-500"></span>
+        Control Center — Target Metrics
+      </h2>
+      <p class="text-slate-400 text-sm mb-4">Set your targets. The agent run will be compared against these and we'll recommend changes to improve quality and determinism.</p>
+      <form id="controlForm" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>
+          <label class="block text-xs font-medium text-slate-500 mb-1">Max Latency (ms)</label>
+          <input id="maxLatency" type="number" min="500" max="30000" step="100" class="w-full bg-surface-900 border border-surface-600 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-accent-500 focus:ring-1 focus:ring-accent-500/30 outline-none" placeholder="2000" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-500 mb-1">Max Tokens</label>
+          <input id="maxTokens" type="number" min="100" max="4000" step="50" class="w-full bg-surface-900 border border-surface-600 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-accent-500 outline-none" placeholder="800" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-500 mb-1">Max Cost ($)</label>
+          <input id="maxCost" type="number" min="0" max="1" step="0.01" class="w-full bg-surface-900 border border-surface-600 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-accent-500 outline-none" placeholder="0.05" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-500 mb-1">Min Accuracy (0–1)</label>
+          <input id="minAccuracy" type="number" min="0" max="1" step="0.05" class="w-full bg-surface-900 border border-surface-600 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-accent-500 outline-none" placeholder="0.7" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-500 mb-1">Max Hallucination (0–1)</label>
+          <input id="maxHallucination" type="number" min="0" max="1" step="0.05" class="w-full bg-surface-900 border border-surface-600 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-accent-500 outline-none" placeholder="0.3" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-500 mb-1">Response Type</label>
+          <select id="responseType" class="w-full bg-surface-900 border border-surface-600 rounded-lg px-3 py-2 text-sm text-white focus:border-accent-500 outline-none">
+            <option value="balanced">Balanced</option>
+            <option value="concise">Concise</option>
+            <option value="detailed">Detailed</option>
+            <option value="strict">Strict (RAG only)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-500 mb-1">Temperature (0–1)</label>
+          <input id="temperature" type="number" min="0" max="1" step="0.05" class="w-full bg-surface-900 border border-surface-600 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-accent-500 outline-none" placeholder="0.7" />
+        </div>
+        <div class="flex items-end">
+          <button type="submit" class="w-full py-2.5 bg-accent-600 hover:bg-accent-500 text-white font-medium rounded-lg text-sm transition">Save targets</button>
+        </div>
+      </form>
+    </section>
+
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+      <!-- Left: Metrics + Prompt performance + Run query -->
+      <div class="xl:col-span-2 space-y-8">
+        <!-- Metrics overview (last run or placeholder) -->
+        <section class="card rounded-2xl p-6">
+          <h2 class="text-lg font-semibold text-white mb-4">Metrics vs targets</h2>
+          <div id="metricsOverview" class="grid grid-cols-2 sm:grid-cols-5 gap-4">
+            <div class="bg-surface-900/80 rounded-xl p-4 border border-surface-600/50">
+              <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Latency</div>
+              <div id="ovLatency" class="text-lg font-semibold text-white">—</div>
+              <div id="ovLatencyStatus" class="text-xs mt-1">—</div>
+            </div>
+            <div class="bg-surface-900/80 rounded-xl p-4 border border-surface-600/50">
+              <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Tokens</div>
+              <div id="ovTokens" class="text-lg font-semibold text-white">—</div>
+              <div id="ovTokensStatus" class="text-xs mt-1">—</div>
+            </div>
+            <div class="bg-surface-900/80 rounded-xl p-4 border border-surface-600/50">
+              <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Accuracy</div>
+              <div id="ovAccuracy" class="text-lg font-semibold text-white">—</div>
+              <div id="ovAccuracyStatus" class="text-xs mt-1">—</div>
+            </div>
+            <div class="bg-surface-900/80 rounded-xl p-4 border border-surface-600/50">
+              <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Hallucination</div>
+              <div id="ovHallucination" class="text-lg font-semibold text-white">—</div>
+              <div id="ovHallucinationStatus" class="text-xs mt-1">—</div>
+            </div>
+            <div class="bg-surface-900/80 rounded-xl p-4 border border-surface-600/50">
+              <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Cost</div>
+              <div id="ovCost" class="text-lg font-semibold text-white">—</div>
+              <div id="ovCostStatus" class="text-xs mt-1">—</div>
+            </div>
+          </div>
+          <p id="metricsSource" class="text-xs text-slate-500 mt-3">Run a query to see metrics vs your targets.</p>
+        </section>
+
+        <!-- Prompt performance -->
+        <section class="card rounded-2xl p-6">
+          <h2 class="text-lg font-semibold text-white mb-4">Prompt performance</h2>
+          <p class="text-slate-400 text-sm mb-4">How each prompt version performs (avg latency, accuracy, hallucination). Use this to choose a default for more deterministic behavior.</p>
+          <div id="promptPerfTable" class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-left text-slate-500 border-b border-surface-600">
+                  <th class="pb-3 font-medium">Prompt</th>
+                  <th class="pb-3 font-medium">Avg Latency</th>
+                  <th class="pb-3 font-medium">Avg Tokens</th>
+                  <th class="pb-3 font-medium">Avg Accuracy</th>
+                  <th class="pb-3 font-medium">Avg Hallucination</th>
+                  <th class="pb-3 font-medium">Runs</th>
+                </tr>
+              </thead>
+              <tbody id="promptPerfBody" class="text-slate-300"></tbody>
+            </table>
+          </div>
+          <p id="promptPerfEmpty" class="text-slate-500 text-sm py-4 hidden">No prompt runs yet. Run queries to see performance.</p>
+        </section>
+
+        <!-- Run query -->
+        <section class="card rounded-2xl p-6">
+          <h2 class="text-lg font-semibold text-white mb-4">Run agent</h2>
+          <form id="queryForm" class="flex gap-3 mb-4">
+            <input id="queryInput" type="text" placeholder="Ask anything…" class="flex-1 bg-surface-900 border border-surface-600 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-accent-500 outline-none" />
+            <button type="submit" id="sendBtn" class="px-5 py-2.5 bg-accent-600 hover:bg-accent-500 rounded-lg text-sm font-medium transition disabled:opacity-50 flex items-center gap-2">
+              <span id="sendBtnText">Send</span>
+              <div id="sendLoader" class="loader hidden"></div>
+            </button>
+          </form>
+          <div id="responseBlock" class="hidden rounded-xl bg-surface-900/80 border border-surface-600/50 p-4 mb-4">
+            <div class="text-xs text-slate-500 uppercase tracking-wider mb-2">Response</div>
+            <div id="responseText" class="text-slate-200 text-sm leading-relaxed whitespace-pre-wrap"></div>
+          </div>
+          <div id="runMeta" class="hidden flex flex-wrap gap-3 text-xs text-slate-400">
+            <span>Prompt: <strong id="runPrompt" class="text-slate-300">—</strong></span>
+            <span>Attempts: <strong id="runAttempts" class="text-slate-300">—</strong></span>
+          </div>
+        </section>
+
+        <!-- Recent runs -->
+        <section class="card rounded-2xl p-6">
+          <h2 class="text-lg font-semibold text-white mb-4">Recent runs</h2>
+          <div id="recentRuns" class="space-y-3 max-h-80 overflow-y-auto">
+            <p class="text-slate-500 text-sm">Loading…</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right: Recommendations -->
+      <div class="xl:col-span-1">
+        <section class="card rounded-2xl p-6 sticky top-4">
+          <h2 class="text-lg font-semibold text-white mb-4">Recommendations</h2>
+          <p class="text-slate-400 text-sm mb-4">Actions to make the agent more deterministic and align metrics with your targets.</p>
+          <div id="recommendationsList" class="space-y-3">
+            <p id="recEmpty" class="text-slate-500 text-sm">Run a query or load recommendations to see suggestions.</p>
+          </div>
+          <button type="button" id="loadRecBtn" class="mt-4 w-full py-2 border border-surface-600 rounded-lg text-sm text-slate-400 hover:bg-surface-700 hover:text-slate-200 transition">Refresh recommendations</button>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="fixed top-4 right-4 px-4 py-2 rounded-lg text-sm font-medium shadow-xl z-50 hidden"></div>
+
+  <script>
+    const API = window.location.origin;
+
+    function $(id) { return document.getElementById(id); }
+    function safeClassList(id, method, ...cls) {
+      const el = $(id);
+      if (el && el.classList) el.classList[method](...cls);
+    }
+    function statusBadge(s) {
+      const good = s === 'good';
+      return `<span class="inline-block px-2 py-0.5 rounded text-xs font-medium ${good ? 'badge-good' : 'badge-bad'}">${good ? 'OK' : 'Over target'}</span>`;
+    }
+
+    function pct(v) { return v != null ? (v * 100).toFixed(1) + '%' : '—'; }
+    function ms(v)  { return v != null ? (v / 1000).toFixed(2) + 's' : '—'; }
+    function usd(v) { return v != null ? '$' + v.toFixed(4) : '—'; }
+
+    async function loadPreferences() {
+      try {
+        const r = await fetch(API + '/preferences');
+        const p = await r.json();
+        $('maxLatency').value = p.maxLatency ?? 2000;
+        $('maxTokens').value = p.maxTokens ?? 800;
+        $('maxCost').value = p.maxCost ?? 0.05;
+        $('minAccuracy').value = p.minAccuracy ?? 0.7;
+        $('maxHallucination').value = p.maxHallucination ?? 0.3;
+        $('responseType').value = p.responseType ?? 'balanced';
+        $('temperature').value = p.temperature ?? 0.7;
+      } catch (e) { console.warn('Load preferences failed', e); }
+    }
+
+    $('controlForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const body = {
+        maxLatency: Number($('maxLatency').value) || 2000,
+        maxTokens: Number($('maxTokens').value) || 800,
+        maxCost: Number($('maxCost').value) || 0.05,
+        minAccuracy: Number($('minAccuracy').value) || 0.7,
+        maxHallucination: Number($('maxHallucination').value) || 0.3,
+        responseType: $('responseType').value,
+        temperature: Number($('temperature').value) || 0.7,
+      };
+      try {
+        const r = await fetch(API + '/preferences', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        if (!r.ok) throw new Error('Save failed');
+        showToast('Targets saved', true);
+      } catch (err) {
+        showToast(err.message, false);
+      }
+    });
+
+    function showToast(msg, ok) {
+      const t = $('toast');
+      t.textContent = msg;
+      t.className = 'fixed top-4 right-4 px-4 py-2 rounded-lg text-sm font-medium shadow-xl z-50 ' + (ok ? 'bg-good-bg text-good-text border border-good-border' : 'bg-bad-bg text-bad-text border border-bad-border');
+      t.classList.remove('hidden');
+      setTimeout(() => t.classList.add('hidden'), 3000);
+    }
+
+    function setText(id, text) { const el = $(id); if (el) el.textContent = text; }
+    function setHtml(id, html) { const el = $(id); if (el) el.innerHTML = html; }
+    function renderMetricsFromRun(data) {
+      const m = data.metrics || {};
+      const sys = m.system || {};
+      const q = m.aiQuality || {};
+      const c = data.comparison || {};
+      setText('ovLatency', ms(sys.latency));
+      setText('ovTokens', sys.tokenUsage?.total ?? '—');
+      setText('ovAccuracy', pct(q.accuracyScore));
+      setText('ovHallucination', pct(q.hallucinationScore));
+      setText('ovCost', usd(sys.costPerRequest));
+      setHtml('ovLatencyStatus', c.latencyStatus ? statusBadge(c.latencyStatus) : '—');
+      setHtml('ovTokensStatus', c.tokenStatus ? statusBadge(c.tokenStatus) : '—');
+      setHtml('ovAccuracyStatus', c.accuracyStatus ? statusBadge(c.accuracyStatus) : '—');
+      setHtml('ovHallucinationStatus', c.hallucinationStatus ? statusBadge(c.hallucinationStatus) : '—');
+      setHtml('ovCostStatus', c.costStatus ? statusBadge(c.costStatus) : '—');
+      setText('metricsSource', 'Last run vs your targets');
+    }
+
+    function renderRecommendations(list) {
+      const container = $('recommendationsList');
+      safeClassList('recEmpty', 'add', 'hidden');
+      if (!container) return;
+      if (!list || list.length === 0) {
+        container.innerHTML = '<p class="text-slate-500 text-sm">No recommendations right now. Run a query to get suggestions.</p>';
+        return;
+      }
+      container.innerHTML = list.map(rec => `
+        <div class="rounded-lg bg-surface-900/80 border border-surface-600/50 p-3">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-medium uppercase ${rec.priority === 'high' ? 'text-red-400' : rec.priority === 'medium' ? 'text-amber-400' : 'text-slate-500'}">${rec.priority}</span>
+          </div>
+          <div class="text-sm font-medium text-slate-200">${rec.title}</div>
+          <p class="text-xs text-slate-400 mt-1">${rec.action}</p>
+        </div>
+      `).join('');
+    }
+
+    async function loadPromptPerformance() {
+      try {
+        const r = await fetch(API + '/prompts/performance');
+        const d = await r.json();
+        const perf = d.performance || {};
+        const tbody = $('promptPerfBody');
+        const keys = Object.keys(perf).filter(k => perf[k].usageCount > 0);
+        if (keys.length === 0) {
+          safeClassList('promptPerfTable', 'add', 'hidden');
+          safeClassList('promptPerfEmpty', 'remove', 'hidden');
+          return;
+        }
+        safeClassList('promptPerfEmpty', 'add', 'hidden');
+        safeClassList('promptPerfTable', 'remove', 'hidden');
+        tbody.innerHTML = keys.map(k => {
+          const p = perf[k];
+          return `<tr class="border-b border-surface-600/50">
+            <td class="py-2 font-mono text-accent-400">${k}</td>
+            <td class="py-2">${ms(p.avgLatency)}</td>
+            <td class="py-2">${Math.round(p.avgTokens)}</td>
+            <td class="py-2">${pct(p.avgAccuracy)}</td>
+            <td class="py-2">${pct(p.avgHallucination)}</td>
+            <td class="py-2">${p.usageCount}</td>
+          </tr>`;
+        }).join('');
+      } catch (e) { console.warn('Prompt perf failed', e); }
+    }
+
+    async function loadRecentRuns() {
+      try {
+        const r = await fetch(API + '/logs/summary?limit=20');
+        const d = await r.json();
+        const logs = d.logs || [];
+        const el = $('recentRuns');
+        if (logs.length === 0) {
+          el.innerHTML = '<p class="text-slate-500 text-sm">No runs yet.</p>';
+          return;
+        }
+        el.innerHTML = logs.map(log => {
+          const c = log.comparison || {};
+          const m = log.metrics || {};
+          const sys = m.system || {};
+          const q = m.aiQuality || {};
+          return `<div class="rounded-lg bg-surface-900/50 border border-surface-600/50 p-3 text-sm">
+            <div class="text-slate-300 font-medium truncate">${escapeHtml(log.query)}</div>
+            <div class="flex flex-wrap gap-2 mt-2 text-xs">
+              <span>${ms(sys.latency)}</span>
+              <span>acc ${pct(q.accuracyScore)}</span>
+              <span>hall ${pct(q.hallucinationScore)}</span>
+              <span class="font-mono">${log.promptVersion || '—'}</span>
+              <span>${c.latencyStatus === 'good' ? '🟢' : '🔴'} ${c.accuracyStatus === 'good' ? '🟢' : '🔴'}</span>
+            </div>
+            <div class="text-xs text-slate-500 mt-1">${log.timestamp ? new Date(log.timestamp).toLocaleString() : ''}</div>
+          </div>`;
+        }).join('');
+      } catch (e) {
+        $('recentRuns').innerHTML = '<p class="text-slate-500 text-sm">Could not load runs.</p>';
+      }
+    }
+
+    function escapeHtml(s) {
+      const div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+
+    async function loadRecommendations() {
+      try {
+        const r = await fetch(API + '/recommendations');
+        const d = await r.json();
+        renderRecommendations(d.recommendations || []);
+      } catch (e) { console.warn('Recommendations failed', e); }
+    }
+
+    $('queryForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const query = $('queryInput').value.trim();
+      if (!query) return;
+      $('sendBtn').disabled = true;
+      safeClassList('sendBtnText', 'add', 'hidden');
+      safeClassList('sendLoader', 'remove', 'hidden');
+      safeClassList('responseBlock', 'add', 'hidden');
+      safeClassList('runMeta', 'add', 'hidden');
+      try {
+        const res = await fetch(API + '/query', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || data.detail || res.status);
+        safeClassList('responseBlock', 'remove', 'hidden');
+        $('responseText').textContent = data.final_answer || '(empty)';
+        $('runPrompt').textContent = data.prompt_version || '—';
+        $('runAttempts').textContent = (data.attempts || []).length;
+        safeClassList('runMeta', 'remove', 'hidden');
+        if (data.metrics) renderMetricsFromRun(data);
+        renderRecommendations(data.recommendations || []);
+        loadRecentRuns();
+        loadPromptPerformance();
+      } catch (err) {
+        safeClassList('responseBlock', 'remove', 'hidden');
+        $('responseText').textContent = 'Error: ' + err.message;
+      } finally {
+        $('sendBtn').disabled = false;
+        safeClassList('sendBtnText', 'remove', 'hidden');
+        safeClassList('sendLoader', 'add', 'hidden');
+      }
+    });
+
+    $('loadRecBtn').addEventListener('click', loadRecommendations);
+
+    loadPreferences();
+    loadPromptPerformance();
+    loadRecentRuns();
+    loadRecommendations();
+  </script>
+</body>
+</html>

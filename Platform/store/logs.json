@@ -1,0 +1,2103 @@
+[
+  {
+    "query": "What does Nexora Systems do?",
+    "attempts": [
+      {
+        "response": "Nexora Systems is a global artificial intelligence infrastructure company that builds monitoring, optimization, and governance platforms for large-scale AI deployments. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 7575,
+            "tokenUsage": {
+              "input": 51,
+              "output": 69,
+              "total": 120
+            },
+            "costPerRequest": 0.000018900000000000002
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.3333333333333333,
+            "accuracyScore": 0.19047619047619047,
+            "relevanceScore": 0.48
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v1",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.48,
+          "accuracyScore": 0.19047619047619047,
+          "hallucinationScore": 0.3333333333333333,
+          "toxicityScore": 0,
+          "qualityScore": 0.5033333333333333
+        }
+      },
+      {
+        "response": "Nexora Systems is a global artificial intelligence infrastructure company that builds monitoring, optimization, and governance platforms for large-scale AI deployments. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0) \n\nThe company's platforms allow enterprises to deploy thousands of AI agents across multiple internal systems while maintaining visibility into how those agents behave. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0) \n\nThe company serves enterprise clients across multiple industries, including banking, healthcare, insurance, logistics, retail, and government technology. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 7171,
+            "tokenUsage": {
+              "input": 84,
+              "output": 204,
+              "total": 288
+            },
+            "costPerRequest": 0.0000492
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.2857142857142857,
+            "accuracyScore": 0.12121212121212122,
+            "relevanceScore": 0.72
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 0,
+            "behaviorStability": 0.2400242504409171
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 700,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.72,
+          "accuracyScore": 0.12121212121212122,
+          "hallucinationScore": 0.2857142857142857,
+          "toxicityScore": 0,
+          "qualityScore": 0.550995670995671
+        }
+      },
+      {
+        "response": "Nexora Systems is a global artificial intelligence infrastructure company that builds monitoring, optimization, and governance platforms for large-scale AI deployments. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0)\n\nThe company's platforms allow enterprises to deploy thousands of AI agents across multiple internal systems while maintaining visibility into how those agents behave. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0)\n\nNexora Systems serves enterprise clients across multiple industries, including banking, healthcare, insurance, logistics, retail, and government technology. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 6709,
+            "tokenUsage": {
+              "input": 84,
+              "output": 204,
+              "total": 288
+            },
+            "costPerRequest": 0.0000492
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.2857142857142857,
+            "accuracyScore": 0.12121212121212122,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 0,
+            "behaviorStability": 0.4923579926936836
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 600,
+          "temperature": 0.6,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.12121212121212122,
+          "hallucinationScore": 0.2857142857142857,
+          "toxicityScore": 0,
+          "qualityScore": 0.620995670995671
+        }
+      }
+    ],
+    "finalAnswer": "Nexora Systems is a global artificial intelligence infrastructure company that builds monitoring, optimization, and governance platforms for large-scale AI deployments. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0)\n\nThe company's platforms allow enterprises to deploy thousands of AI agents across multiple internal systems while maintaining visibility into how those agents behave. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0)\n\nNexora Systems serves enterprise clients across multiple industries, including banking, healthcare, insurance, logistics, retail, and government technology. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0)",
+    "metrics": {
+      "system": {
+        "latency": 6709,
+        "tokenUsage": {
+          "input": 84,
+          "output": 204,
+          "total": 288
+        },
+        "costPerRequest": 0.0000492
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.2857142857142857,
+        "accuracyScore": 0.12121212121212122,
+        "relevanceScore": 1
+      },
+      "stability": {
+        "retryRate": 0.6666666666666666,
+        "errorRate": 0,
+        "behaviorStability": 0.4923579926936836
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 2000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.7,
+      "maxHallucination": 0.3,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "balanced",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "good",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 600,
+      "temperature": 0.6,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-17T05:47:14.184Z"
+  },
+  {
+    "query": "What industries does Nexora primarily serve?",
+    "attempts": [
+      {
+        "response": "Nexora Systems primarily serves enterprise clients across multiple industries, including banking, healthcare, insurance, logistics, retail, and government technology. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 6819,
+            "tokenUsage": {
+              "input": 55,
+              "output": 69,
+              "total": 124
+            },
+            "costPerRequest": 0.0000193
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.3333333333333333,
+            "accuracyScore": 0.13636363636363635,
+            "relevanceScore": 0.39999999999999997
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v1",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.39999999999999997,
+          "accuracyScore": 0.13636363636363635,
+          "hallucinationScore": 0.3333333333333333,
+          "toxicityScore": 0,
+          "qualityScore": 0.46439393939393936
+        }
+      },
+      {
+        "response": "Nexora Systems primarily serves enterprise clients across multiple industries, including banking, healthcare, insurance, logistics, retail, and government technology. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0) \n\nAdditionally, the company has case studies with clients in the banking, logistics, and healthcare industries. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 6844,
+            "tokenUsage": {
+              "input": 88,
+              "output": 124,
+              "total": 212
+            },
+            "costPerRequest": 0.000033600000000000004
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.2,
+            "accuracyScore": 0.2,
+            "relevanceScore": 0.39999999999999997
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 0,
+            "behaviorStability": 0.4651592888676769
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 700,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.39999999999999997,
+          "accuracyScore": 0.2,
+          "hallucinationScore": 0.2,
+          "toxicityScore": 0,
+          "qualityScore": 0.52
+        }
+      },
+      {
+        "response": "Nexora Systems primarily serves enterprise clients across multiple industries, including banking, healthcare, insurance, logistics, retail, and government technology. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0) \n\nAdditionally, the company has case studies with clients in the banking, logistics, and healthcare industries. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 7327,
+            "tokenUsage": {
+              "input": 88,
+              "output": 124,
+              "total": 212
+            },
+            "costPerRequest": 0.000033600000000000004
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.2,
+            "accuracyScore": 0.2,
+            "relevanceScore": 0.39999999999999997
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 0,
+            "behaviorStability": 0.6434395259117845
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 600,
+          "temperature": 0.6,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.39999999999999997,
+          "accuracyScore": 0.2,
+          "hallucinationScore": 0.2,
+          "toxicityScore": 0,
+          "qualityScore": 0.52
+        }
+      },
+      {
+        "response": "Nexora Systems primarily serves enterprise clients across multiple industries, including banking, healthcare, insurance, logistics, retail, and government technology. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0)\n\nAdditionally, the company has case studies with clients in the banking, logistics, and healthcare industries. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 7411,
+            "tokenUsage": {
+              "input": 88,
+              "output": 124,
+              "total": 212
+            },
+            "costPerRequest": 0.000033600000000000004
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.2,
+            "accuracyScore": 0.2,
+            "relevanceScore": 0.39999999999999997
+          },
+          "stability": {
+            "retryRate": 0.75,
+            "errorRate": 0,
+            "behaviorStability": 0.7325796444338385
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 500,
+          "temperature": 0.6,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.39999999999999997,
+          "accuracyScore": 0.2,
+          "hallucinationScore": 0.2,
+          "toxicityScore": 0,
+          "qualityScore": 0.52
+        }
+      }
+    ],
+    "finalAnswer": "Nexora Systems primarily serves enterprise clients across multiple industries, including banking, healthcare, insurance, logistics, retail, and government technology. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 0)\n\nAdditionally, the company has case studies with clients in the banking, logistics, and healthcare industries. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf, page: 0)",
+    "metrics": {
+      "system": {
+        "latency": 7411,
+        "tokenUsage": {
+          "input": 88,
+          "output": 124,
+          "total": 212
+        },
+        "costPerRequest": 0.000033600000000000004
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.2,
+        "accuracyScore": 0.2,
+        "relevanceScore": 0.39999999999999997
+      },
+      "stability": {
+        "retryRate": 0.75,
+        "errorRate": 0,
+        "behaviorStability": 0.7325796444338385
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 2000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.7,
+      "maxHallucination": 0.3,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "balanced",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "good",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 500,
+      "temperature": 0.6,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-17T05:47:56.635Z"
+  },
+  {
+    "query": "What is the main goal of Nexora's AI platform?",
+    "attempts": [
+      {
+        "response": "The main goal of Nexora's AI platform is to provide a comprehensive infrastructure for the safe and reliable deployment of artificial intelligence systems at a global scale, focusing on monitoring, optimization, and governance of large-scale AI deployments. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 1)",
+        "metrics": {
+          "system": {
+            "latency": 6166,
+            "tokenUsage": {
+              "input": 55,
+              "output": 91,
+              "total": 146
+            },
+            "costPerRequest": 0.000023700000000000003
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.3333333333333333,
+            "accuracyScore": 0.16666666666666666,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v1",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.16666666666666666,
+          "hallucinationScore": 0.3333333333333333,
+          "toxicityScore": 0,
+          "qualityScore": 0.625
+        }
+      }
+    ],
+    "finalAnswer": "The main goal of Nexora's AI platform is to provide a comprehensive infrastructure for the safe and reliable deployment of artificial intelligence systems at a global scale, focusing on monitoring, optimization, and governance of large-scale AI deployments. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf, page: 1)",
+    "metrics": {
+      "system": {
+        "latency": 6166,
+        "tokenUsage": {
+          "input": 55,
+          "output": 91,
+          "total": 146
+        },
+        "costPerRequest": 0.000023700000000000003
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.3333333333333333,
+        "accuracyScore": 0.16666666666666666,
+        "relevanceScore": 1
+      },
+      "stability": {
+        "retryRate": 0,
+        "errorRate": 0,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 2000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.7,
+      "maxHallucination": 0.3,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "balanced",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "bad",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "promptVersion": "v1",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-17T05:48:02.826Z"
+  },
+  {
+    "query": "What is the internship duration at Nexora?",
+    "attempts": [
+      {
+        "response": "The internship duration at Nexora Systems typically lasts between three and six months and may convert into full-time employment depending on performance. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 6594,
+            "tokenUsage": {
+              "input": 54,
+              "output": 67,
+              "total": 121
+            },
+            "costPerRequest": 0.000018800000000000003
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.3333333333333333,
+            "accuracyScore": 0.16666666666666666,
+            "relevanceScore": 0.6857142857142856
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v1",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.6857142857142856,
+          "accuracyScore": 0.16666666666666666,
+          "hallucinationScore": 0.3333333333333333,
+          "toxicityScore": 0,
+          "qualityScore": 0.5464285714285714
+        }
+      },
+      {
+        "response": "The internship duration at Nexora Systems typically lasts between three and six months and may convert into full-time employment depending on performance. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 13598,
+            "tokenUsage": {
+              "input": 87,
+              "output": 67,
+              "total": 154
+            },
+            "costPerRequest": 0.000022100000000000002
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.3333333333333333,
+            "accuracyScore": 0.16666666666666666,
+            "relevanceScore": 0.6857142857142856
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 700,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.6857142857142856,
+          "accuracyScore": 0.16666666666666666,
+          "hallucinationScore": 0.3333333333333333,
+          "toxicityScore": 0,
+          "qualityScore": 0.5464285714285714
+        }
+      },
+      {
+        "response": "The internship duration at Nexora Systems typically lasts between three and six months and may convert into full-time employment depending on performance. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 18943,
+            "tokenUsage": {
+              "input": 87,
+              "output": 67,
+              "total": 154
+            },
+            "costPerRequest": 0.000022100000000000002
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.3333333333333333,
+            "accuracyScore": 0.16666666666666666,
+            "relevanceScore": 0.6857142857142856
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 600,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.6857142857142856,
+          "accuracyScore": 0.16666666666666666,
+          "hallucinationScore": 0.3333333333333333,
+          "toxicityScore": 0,
+          "qualityScore": 0.5464285714285714
+        }
+      },
+      {
+        "response": "The internship duration at Nexora Systems typically lasts between three and six months and may convert into full-time employment depending on performance. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 19447,
+            "tokenUsage": {
+              "input": 87,
+              "output": 67,
+              "total": 154
+            },
+            "costPerRequest": 0.000022100000000000002
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.3333333333333333,
+            "accuracyScore": 0.16666666666666666,
+            "relevanceScore": 0.6857142857142856
+          },
+          "stability": {
+            "retryRate": 0.75,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 500,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.6857142857142856,
+          "accuracyScore": 0.16666666666666666,
+          "hallucinationScore": 0.3333333333333333,
+          "toxicityScore": 0,
+          "qualityScore": 0.5464285714285714
+        }
+      }
+    ],
+    "finalAnswer": "The internship duration at Nexora Systems typically lasts between three and six months and may convert into full-time employment depending on performance. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf, page: 0)",
+    "metrics": {
+      "system": {
+        "latency": 19447,
+        "tokenUsage": {
+          "input": 87,
+          "output": 67,
+          "total": 154
+        },
+        "costPerRequest": 0.000022100000000000002
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.3333333333333333,
+        "accuracyScore": 0.16666666666666666,
+        "relevanceScore": 0.6857142857142856
+      },
+      "stability": {
+        "retryRate": 0.75,
+        "errorRate": 0,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 2000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.7,
+      "maxHallucination": 0.3,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "balanced",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "bad",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 500,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-17T05:49:01.448Z"
+  },
+  {
+    "query": "What are the key responsibilities of interns at Nexora?",
+    "attempts": [
+      {
+        "response": "The provided documents do not contain specific information about the key responsibilities of interns at Nexora. However, according to the hiring and recruitment document, interns are expected to demonstrate knowledge in areas such as machine learning fundamentals, distributed systems, vector databases, and large language model architectures, suggesting that their responsibilities may be related to these areas. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 19159,
+            "tokenUsage": {
+              "input": 58,
+              "output": 132,
+              "total": 190
+            },
+            "costPerRequest": 0.000032200000000000003
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.5,
+            "accuracyScore": 0.11764705882352941,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v1",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.11764705882352941,
+          "hallucinationScore": 0.5,
+          "toxicityScore": 0,
+          "qualityScore": 0.5661764705882353
+        }
+      },
+      {
+        "response": "The provided documents do not contain specific information about the key responsibilities of interns at Nexora. However, according to the hiring and recruitment document, interns are expected to demonstrate knowledge in areas such as machine learning fundamentals, distributed systems, vector databases, and large language model architectures, suggesting that their responsibilities may be related to these areas. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 21742,
+            "tokenUsage": {
+              "input": 90,
+              "output": 132,
+              "total": 222
+            },
+            "costPerRequest": 0.0000354
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.5,
+            "accuracyScore": 0.11764705882352941,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 700,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.11764705882352941,
+          "hallucinationScore": 0.5,
+          "toxicityScore": 0,
+          "qualityScore": 0.5661764705882353
+        }
+      },
+      {
+        "response": "The provided documents do not contain specific information about the key responsibilities of interns at Nexora. However, according to the hiring and recruitment document, interns are expected to demonstrate knowledge in areas such as machine learning fundamentals, distributed systems, vector databases, and large language model architectures, suggesting that their responsibilities may be related to these areas. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 22134,
+            "tokenUsage": {
+              "input": 90,
+              "output": 132,
+              "total": 222
+            },
+            "costPerRequest": 0.0000354
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.5,
+            "accuracyScore": 0.11764705882352941,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 600,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.11764705882352941,
+          "hallucinationScore": 0.5,
+          "toxicityScore": 0,
+          "qualityScore": 0.5661764705882353
+        }
+      },
+      {
+        "response": "The provided documents do not contain specific information about the key responsibilities of interns at Nexora. However, according to the hiring and recruitment document, interns are expected to demonstrate knowledge in areas such as machine learning fundamentals, distributed systems, vector databases, and large language model architectures, suggesting that their responsibilities may be related to these areas. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 23329,
+            "tokenUsage": {
+              "input": 90,
+              "output": 132,
+              "total": 222
+            },
+            "costPerRequest": 0.0000354
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.5,
+            "accuracyScore": 0.11764705882352941,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0.75,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 500,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.11764705882352941,
+          "hallucinationScore": 0.5,
+          "toxicityScore": 0,
+          "qualityScore": 0.5661764705882353
+        }
+      }
+    ],
+    "finalAnswer": "The provided documents do not contain specific information about the key responsibilities of interns at Nexora. However, according to the hiring and recruitment document, interns are expected to demonstrate knowledge in areas such as machine learning fundamentals, distributed systems, vector databases, and large language model architectures, suggesting that their responsibilities may be related to these areas. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf, page: 0)",
+    "metrics": {
+      "system": {
+        "latency": 23329,
+        "tokenUsage": {
+          "input": 90,
+          "output": 132,
+          "total": 222
+        },
+        "costPerRequest": 0.0000354
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.5,
+        "accuracyScore": 0.11764705882352941,
+        "relevanceScore": 1
+      },
+      "stability": {
+        "retryRate": 0.75,
+        "errorRate": 0,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 2000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.7,
+      "maxHallucination": 0.3,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "balanced",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "bad",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 500,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-17T05:50:27.849Z"
+  },
+  {
+    "query": "What products does Nexora offer and what problems do they solve?",
+    "attempts": [
+      {
+        "response": "Nexora Systems offers several products, including ControlHub, AgentFlow, and retrieval augmented generation infrastructure. \n\n- ControlHub is used to monitor AI agents, reducing hallucination incidents and improving response latency. \n- AgentFlow automates tasks such as shipment tracking queries, reducing manual support workload. \n- Retrieval augmented generation infrastructure provides quick access to medical research documents and treatment guidelines, reducing research time.\n\nThese products solve problems related to the deployment and management of artificial intelligence systems, such as monitoring, control, and evaluation of AI agents, automation of tasks, and providing access to relevant information. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 22425,
+            "tokenUsage": {
+              "input": 60,
+              "output": 207,
+              "total": 267
+            },
+            "costPerRequest": 0.0000474
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.7142857142857143,
+            "accuracyScore": 0.1,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v1",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.1,
+          "hallucinationScore": 0.7142857142857143,
+          "toxicityScore": 0,
+          "qualityScore": 0.5064285714285715
+        }
+      },
+      {
+        "response": "Nexora Systems offers several products, including ControlHub, AgentFlow, and retrieval augmented generation infrastructure. \n\n- ControlHub is used to monitor AI agents, reducing hallucination incidents and improving response latency. \n- AgentFlow automates tasks such as shipment tracking queries, reducing manual support workload. \n- Retrieval augmented generation infrastructure provides quick access to medical research documents and treatment guidelines, reducing research time.\n\nThese products solve problems related to the deployment and management of artificial intelligence systems, such as monitoring, control, and evaluation of AI agents, automation of tasks, and providing access to relevant information. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 22850,
+            "tokenUsage": {
+              "input": 93,
+              "output": 207,
+              "total": 300
+            },
+            "costPerRequest": 0.0000507
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.7142857142857143,
+            "accuracyScore": 0.1,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 700,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.1,
+          "hallucinationScore": 0.7142857142857143,
+          "toxicityScore": 0,
+          "qualityScore": 0.5064285714285715
+        }
+      },
+      {
+        "response": "Nexora Systems offers several products, including ControlHub, AgentFlow, and retrieval augmented generation infrastructure. \n\n- ControlHub is used to monitor AI agents, reducing hallucination incidents and improving response latency. \n- AgentFlow automates tasks such as shipment tracking queries, reducing manual support workload. \n- Retrieval augmented generation infrastructure provides quick access to medical research documents and treatment guidelines, reducing research time.\n\nThese products solve problems related to the deployment and management of artificial intelligence systems, such as monitoring, control, and evaluation of AI agents, automation of tasks, and providing access to relevant information. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 24828,
+            "tokenUsage": {
+              "input": 93,
+              "output": 207,
+              "total": 300
+            },
+            "costPerRequest": 0.0000507
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.7142857142857143,
+            "accuracyScore": 0.1,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 600,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.1,
+          "hallucinationScore": 0.7142857142857143,
+          "toxicityScore": 0,
+          "qualityScore": 0.5064285714285715
+        }
+      },
+      {
+        "response": "Nexora Systems offers several products, including ControlHub, AgentFlow, and retrieval augmented generation infrastructure. \n\n- ControlHub is used to monitor AI agents, reducing hallucination incidents and improving response latency. \n- AgentFlow automates tasks such as shipment tracking queries, reducing manual support workload. \n- Retrieval augmented generation infrastructure provides quick access to medical research documents and treatment guidelines, reducing research time.\n\nThese products solve problems related to the deployment and management of artificial intelligence systems, such as monitoring, control, and evaluation of AI agents, automation of tasks, and providing access to relevant information. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf, page: 0)",
+        "metrics": {
+          "system": {
+            "latency": 26408,
+            "tokenUsage": {
+              "input": 93,
+              "output": 207,
+              "total": 300
+            },
+            "costPerRequest": 0.0000507
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.7142857142857143,
+            "accuracyScore": 0.1,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0.75,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 500,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.1,
+          "hallucinationScore": 0.7142857142857143,
+          "toxicityScore": 0,
+          "qualityScore": 0.5064285714285715
+        }
+      }
+    ],
+    "finalAnswer": "Nexora Systems offers several products, including ControlHub, AgentFlow, and retrieval augmented generation infrastructure. \n\n- ControlHub is used to monitor AI agents, reducing hallucination incidents and improving response latency. \n- AgentFlow automates tasks such as shipment tracking queries, reducing manual support workload. \n- Retrieval augmented generation infrastructure provides quick access to medical research documents and treatment guidelines, reducing research time.\n\nThese products solve problems related to the deployment and management of artificial intelligence systems, such as monitoring, control, and evaluation of AI agents, automation of tasks, and providing access to relevant information. (Source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf, page: 0)",
+    "metrics": {
+      "system": {
+        "latency": 26408,
+        "tokenUsage": {
+          "input": 93,
+          "output": 207,
+          "total": 300
+        },
+        "costPerRequest": 0.0000507
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.7142857142857143,
+        "accuracyScore": 0.1,
+        "relevanceScore": 1
+      },
+      "stability": {
+        "retryRate": 0.75,
+        "errorRate": 0,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 2000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.7,
+      "maxHallucination": 0.3,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "balanced",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "bad",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 500,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-17T05:52:04.396Z"
+  },
+  {
+    "query": "What are the key responsibilities of interns at Nexora?",
+    "attempts": [
+      {
+        "response": "The provided company documents do not explicitly outline the key responsibilities of interns at Nexora. However, according to the \"Nexora Hiring and Recruitment\" document (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf), internship programs at Nexora typically last between three and six months and may convert into full-time employment depending on performance. This suggests that interns are expected to contribute to the company's projects and goals, and their performance will be evaluated for potential full-time employment opportunities. For specific responsibilities, it's best to consult with the hiring manager or the company's HR department.",
+        "metrics": {
+          "system": {
+            "latency": 8220,
+            "tokenUsage": {
+              "input": 58,
+              "output": 177,
+              "total": 235
+            },
+            "costPerRequest": 0.0000412
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.4,
+            "accuracyScore": 0.15789473684210525,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v1",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.9,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.15789473684210525,
+          "hallucinationScore": 0.4,
+          "toxicityScore": 0,
+          "qualityScore": 0.6052631578947368
+        }
+      }
+    ],
+    "finalAnswer": "The provided company documents do not explicitly outline the key responsibilities of interns at Nexora. However, according to the \"Nexora Hiring and Recruitment\" document (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf), internship programs at Nexora typically last between three and six months and may convert into full-time employment depending on performance. This suggests that interns are expected to contribute to the company's projects and goals, and their performance will be evaluated for potential full-time employment opportunities. For specific responsibilities, it's best to consult with the hiring manager or the company's HR department.",
+    "metrics": {
+      "system": {
+        "latency": 8220,
+        "tokenUsage": {
+          "input": 58,
+          "output": 177,
+          "total": 235
+        },
+        "costPerRequest": 0.0000412
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.4,
+        "accuracyScore": 0.15789473684210525,
+        "relevanceScore": 1
+      },
+      "stability": {
+        "retryRate": 0,
+        "errorRate": 0,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 2000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.7,
+      "minConfidence": 0.8,
+      "responseType": "balanced",
+      "temperature": 0.9
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "bad",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "latency",
+        "title": "Reduce latency",
+        "action": "Lower max tokens (e.g. 400–500) and use the \"Concise\" response type so the agent returns shorter answers faster.",
+        "priority": "high"
+      },
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "hallucination",
+        "title": "Reduce hallucination",
+        "action": "Use prompt v3 (strict RAG) and lower temperature (e.g. 0.2–0.3) for more deterministic, document-grounded answers.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.9 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      }
+    ],
+    "promptVersion": "v1",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.9,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-17T06:05:02.004Z"
+  },
+  {
+    "query": "What are the key responsibilities of interns at Nexora?",
+    "attempts": [
+      {
+        "response": "The provided company documents do not explicitly outline the key responsibilities of interns at Nexora. However, according to the \"Nexora Hiring and Recruitment\" document (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf), internship programs at Nexora typically last between three and six months and may convert into full-time employment depending on performance. This suggests that interns are expected to contribute to the company's projects and goals, and their performance will be evaluated for potential full-time employment opportunities. For specific responsibilities, it's best to consult with the hiring manager or the company's HR department.",
+        "metrics": {
+          "system": {
+            "latency": 6469,
+            "tokenUsage": {
+              "input": 58,
+              "output": 177,
+              "total": 235
+            },
+            "costPerRequest": 0.0000412
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.4,
+            "accuracyScore": 0.15789473684210525,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v1",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.9,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.15789473684210525,
+          "hallucinationScore": 0.4,
+          "toxicityScore": 0,
+          "qualityScore": 0.6052631578947368
+        }
+      }
+    ],
+    "finalAnswer": "The provided company documents do not explicitly outline the key responsibilities of interns at Nexora. However, according to the \"Nexora Hiring and Recruitment\" document (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf), internship programs at Nexora typically last between three and six months and may convert into full-time employment depending on performance. This suggests that interns are expected to contribute to the company's projects and goals, and their performance will be evaluated for potential full-time employment opportunities. For specific responsibilities, it's best to consult with the hiring manager or the company's HR department.",
+    "metrics": {
+      "system": {
+        "latency": 6469,
+        "tokenUsage": {
+          "input": 58,
+          "output": 177,
+          "total": 235
+        },
+        "costPerRequest": 0.0000412
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.4,
+        "accuracyScore": 0.15789473684210525,
+        "relevanceScore": 1
+      },
+      "stability": {
+        "retryRate": 0,
+        "errorRate": 0,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 2000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.7,
+      "minConfidence": 0.8,
+      "responseType": "balanced",
+      "temperature": 0.9
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "bad",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "latency",
+        "title": "Reduce latency",
+        "action": "Lower max tokens (e.g. 400–500) and use the \"Concise\" response type so the agent returns shorter answers faster.",
+        "priority": "high"
+      },
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "hallucination",
+        "title": "Reduce hallucination",
+        "action": "Use prompt v3 (strict RAG) and lower temperature (e.g. 0.2–0.3) for more deterministic, document-grounded answers.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.9 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      }
+    ],
+    "promptVersion": "v1",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.9,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-17T06:05:29.417Z"
+  },
+  {
+    "query": "What are the key responsibilities of interns at Nexora?",
+    "attempts": [
+      {
+        "response": "The provided company documents do not explicitly outline the key responsibilities of interns at Nexora. However, according to the \"Nexora Hiring and Recruitment\" document (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf), internship programs at Nexora typically last between three and six months and may convert into full-time employment depending on performance. This suggests that interns are expected to contribute to the company's projects and goals, and their performance will be evaluated for potential full-time employment opportunities. For specific responsibilities, it's best to consult with the hiring manager or the company's HR department.",
+        "metrics": {
+          "system": {
+            "latency": 6799,
+            "tokenUsage": {
+              "input": 58,
+              "output": 177,
+              "total": 235
+            },
+            "costPerRequest": 0.0000412
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.4,
+            "accuracyScore": 0.15789473684210525,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v1",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.9,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.15789473684210525,
+          "hallucinationScore": 0.4,
+          "toxicityScore": 0,
+          "qualityScore": 0.6052631578947368
+        }
+      }
+    ],
+    "finalAnswer": "The provided company documents do not explicitly outline the key responsibilities of interns at Nexora. However, according to the \"Nexora Hiring and Recruitment\" document (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf), internship programs at Nexora typically last between three and six months and may convert into full-time employment depending on performance. This suggests that interns are expected to contribute to the company's projects and goals, and their performance will be evaluated for potential full-time employment opportunities. For specific responsibilities, it's best to consult with the hiring manager or the company's HR department.",
+    "metrics": {
+      "system": {
+        "latency": 6799,
+        "tokenUsage": {
+          "input": 58,
+          "output": 177,
+          "total": 235
+        },
+        "costPerRequest": 0.0000412
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.4,
+        "accuracyScore": 0.15789473684210525,
+        "relevanceScore": 1
+      },
+      "stability": {
+        "retryRate": 0,
+        "errorRate": 0,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 2000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.7,
+      "minConfidence": 0.8,
+      "responseType": "balanced",
+      "temperature": 0.9
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "bad",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "latency",
+        "title": "Reduce latency",
+        "action": "Lower max tokens (e.g. 400–500) and use the \"Concise\" response type so the agent returns shorter answers faster.",
+        "priority": "high"
+      },
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "hallucination",
+        "title": "Reduce hallucination",
+        "action": "Use prompt v3 (strict RAG) and lower temperature (e.g. 0.2–0.3) for more deterministic, document-grounded answers.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.9 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      }
+    ],
+    "promptVersion": "v1",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.9,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-17T06:07:26.621Z"
+  },
+  {
+    "query": "companies that nexora accuired",
+    "attempts": [
+      {
+        "response": "The provided company documents do not explicitly mention any companies acquired by Nexora. The documents focus on Nexora's products, services, and mission, but do not provide information on acquisitions. Therefore, I couldn't find any relevant information on companies acquired by Nexora. If you need more information, I suggest checking the company's official website or recent news articles for any updates on acquisitions.",
+        "metrics": {
+          "system": {
+            "latency": 6558,
+            "tokenUsage": {
+              "input": 51,
+              "output": 107,
+              "total": 158
+            },
+            "costPerRequest": 0.0000265
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.75,
+            "accuracyScore": 0.1,
+            "relevanceScore": 0.6
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v1",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.9,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.6,
+          "accuracyScore": 0.1,
+          "hallucinationScore": 0.75,
+          "toxicityScore": 0,
+          "qualityScore": 0.39749999999999996
+        }
+      },
+      {
+        "response": "The provided documents do not contain this information. \n\nI have reviewed the following documents: \n- \"Nexora Customer Policies\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/3_nexora_customer_policies.pdf)\n- \"Nexora Client Case Studies\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf)\n- \"Nexora Company Overview\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf)\n- \"Nexora Employee Handbook\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/5_nexora_employee_handbook.pdf)\n- \"Nexora Hiring and Recruitment\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf)\n\nNone of these documents mention any companies acquired by Nexora.",
+        "metrics": {
+          "system": {
+            "latency": 6181,
+            "tokenUsage": {
+              "input": 84,
+              "output": 205,
+              "total": 289
+            },
+            "costPerRequest": 0.0000494
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.42857142857142855,
+            "accuracyScore": 0.25,
+            "relevanceScore": 0.3
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 0,
+            "behaviorStability": 0.12590145427983268
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 700,
+          "temperature": 0.9,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.3,
+          "accuracyScore": 0.25,
+          "hallucinationScore": 0.42857142857142855,
+          "toxicityScore": 0,
+          "qualityScore": 0.4553571428571428
+        }
+      },
+      {
+        "response": "The provided documents do not contain this information. \n\nI have reviewed the following documents: \n- \"Nexora Customer Policies\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/3_nexora_customer_policies.pdf)\n- \"Nexora Client Case Studies\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf)\n- \"Nexora Company Overview\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf)\n- \"Nexora Employee Handbook\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/5_nexora_employee_handbook.pdf)\n- \"Nexora Hiring and Recruitment\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf)\n\nNone of these documents mention any companies acquired by Nexora.",
+        "metrics": {
+          "system": {
+            "latency": 6256,
+            "tokenUsage": {
+              "input": 84,
+              "output": 205,
+              "total": 289
+            },
+            "costPerRequest": 0.0000494
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.42857142857142855,
+            "accuracyScore": 0.25,
+            "relevanceScore": 0.3
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 0,
+            "behaviorStability": 0.4172676361865551
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 600,
+          "temperature": 0.8,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.3,
+          "accuracyScore": 0.25,
+          "hallucinationScore": 0.42857142857142855,
+          "toxicityScore": 0,
+          "qualityScore": 0.4553571428571428
+        }
+      },
+      {
+        "response": "The provided documents do not contain this information.\n\nI have reviewed the following documents: \n- \"Nexora Customer Policies\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/3_nexora_customer_policies.pdf)\n- \"Nexora Client Case Studies\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf)\n- \"Nexora Company Overview\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf)\n- \"Nexora Employee Handbook\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/5_nexora_employee_handbook.pdf)\n- \"Nexora Hiring and Recruitment\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf)\n\nNone of these documents mention any companies acquired by Nexora.",
+        "metrics": {
+          "system": {
+            "latency": 6280,
+            "tokenUsage": {
+              "input": 84,
+              "output": 205,
+              "total": 289
+            },
+            "costPerRequest": 0.0000494
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.42857142857142855,
+            "accuracyScore": 0.25,
+            "relevanceScore": 0.3
+          },
+          "stability": {
+            "retryRate": 0.75,
+            "errorRate": 0,
+            "behaviorStability": 0.5629507271399163
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 500,
+          "temperature": 0.8,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.3,
+          "accuracyScore": 0.25,
+          "hallucinationScore": 0.42857142857142855,
+          "toxicityScore": 0,
+          "qualityScore": 0.4553571428571428
+        }
+      }
+    ],
+    "finalAnswer": "The provided documents do not contain this information.\n\nI have reviewed the following documents: \n- \"Nexora Customer Policies\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/3_nexora_customer_policies.pdf)\n- \"Nexora Client Case Studies\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/8_nexora_client_case_studies.pdf)\n- \"Nexora Company Overview\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/1_nexora_company_overview.pdf)\n- \"Nexora Employee Handbook\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/5_nexora_employee_handbook.pdf)\n- \"Nexora Hiring and Recruitment\" (source: /Users/chiragsareen/Desktop/AI optimization/AI_agent/data/6_nexora_hiring_and_recruitment.pdf)\n\nNone of these documents mention any companies acquired by Nexora.",
+    "metrics": {
+      "system": {
+        "latency": 6280,
+        "tokenUsage": {
+          "input": 84,
+          "output": 205,
+          "total": 289
+        },
+        "costPerRequest": 0.0000494
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.42857142857142855,
+        "accuracyScore": 0.25,
+        "relevanceScore": 0.3
+      },
+      "stability": {
+        "retryRate": 0.75,
+        "errorRate": 0,
+        "behaviorStability": 0.5629507271399163
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 5000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.7,
+      "minConfidence": 0.8,
+      "responseType": "balanced",
+      "temperature": 0.9
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "bad",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "latency",
+        "title": "Reduce latency",
+        "action": "Lower max tokens (e.g. 400–500) and use the \"Concise\" response type so the agent returns shorter answers faster.",
+        "priority": "high"
+      },
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "hallucination",
+        "title": "Reduce hallucination",
+        "action": "Use prompt v3 (strict RAG) and lower temperature (e.g. 0.2–0.3) for more deterministic, document-grounded answers.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.9 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      }
+    ],
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 500,
+      "temperature": 0.8,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-17T06:11:52.697Z"
+  },
+  {
+    "query": "What products does Nexora offer and what problems do they solve?",
+    "attempts": [
+      {
+        "response": "According to the company documents, specifically [1_nexora_company_overview.pdf], Nexora Systems offers monitoring, optimization, and governance platforms for large-scale AI deployments. \n\nMore specifically, as mentioned in [1_nexora_company_overview.pdf] and [8_nexora_client_case_studies.pdf], some of the products include:\n- Nexora ControlHub: monitors AI agents, reducing hallucination incidents and improving response latency.\n- Nexora AgentFlow: automates tasks, such as shipment tracking queries, reducing manual support workload.\n\nThese products solve problems related to deploying and managing AI systems in enterprise environments, including lack of visibility, control, and evaluation of AI models and agents once they are deployed in production.",
+        "metrics": {
+          "system": {
+            "latency": 9884,
+            "tokenUsage": {
+              "input": 60,
+              "output": 190,
+              "total": 250
+            },
+            "costPerRequest": 0.000044
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.42857142857142855,
+            "accuracyScore": 0.06666666666666667,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v1",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.9,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.06666666666666667,
+          "hallucinationScore": 0.42857142857142855,
+          "toxicityScore": 0,
+          "qualityScore": 0.5661904761904761
+        }
+      },
+      {
+        "response": "According to [1_nexora_company_overview.pdf], Nexora Systems offers monitoring, optimization, and governance platforms for large-scale AI deployments. \n\nMore specifically, as mentioned in [1_nexora_company_overview.pdf] and [8_nexora_client_case_studies.pdf], some of the products include:\n- Nexora ControlHub: monitors AI agents, reducing hallucination incidents and improving response latency, as seen in the case study of a multinational banking organization [8_nexora_client_case_studies.pdf].\n- Nexora AgentFlow: automates tasks, such as shipment tracking queries, reducing manual support workload, as seen in the case study of a logistics company [8_nexora_client_case_studies.pdf].\n\nThese products solve problems related to deploying and managing AI systems in enterprise environments, including lack of visibility, control, and evaluation of AI models and agents once they are deployed in production, as stated in [1_nexora_company_overview.pdf].",
+        "metrics": {
+          "system": {
+            "latency": 6947,
+            "tokenUsage": {
+              "input": 93,
+              "output": 239,
+              "total": 332
+            },
+            "costPerRequest": 0.000057100000000000006
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.4,
+            "accuracyScore": 0.07954545454545454,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 0,
+            "behaviorStability": 0.661603074457964
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 700,
+          "temperature": 0.9,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.07954545454545454,
+          "hallucinationScore": 0.4,
+          "toxicityScore": 0,
+          "qualityScore": 0.5778409090909091
+        }
+      },
+      {
+        "response": "According to [1_nexora_company_overview.pdf], Nexora Systems offers monitoring, optimization, and governance platforms for large-scale AI deployments. \n\nMore specifically, as mentioned in [8_nexora_client_case_studies.pdf], some of the products include:\n- Nexora ControlHub: monitors AI agents, reducing hallucination incidents and improving response latency, as seen in the case study of a multinational banking organization [8_nexora_client_case_studies.pdf].\n- Nexora AgentFlow: automates tasks, such as shipment tracking queries, reducing manual support workload, as seen in the case study of a logistics company [8_nexora_client_case_studies.pdf].\n- Nexora's retrieval augmented generation infrastructure: provides quick access to medical research documents and treatment guidelines, as seen in the case study of a healthcare provider [8_nexora_client_case_studies.pdf].\n\nThese products solve problems related to deploying and managing AI systems in enterprise environments, including lack of visibility, control, and evaluation of AI models and agents once they are deployed in production, as stated in [1_nexora_company_overview.pdf].",
+        "metrics": {
+          "system": {
+            "latency": 7895,
+            "tokenUsage": {
+              "input": 93,
+              "output": 286,
+              "total": 379
+            },
+            "costPerRequest": 0.0000665
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.36363636363636365,
+            "accuracyScore": 0.07476635514018691,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 0,
+            "behaviorStability": 0.6299033663867863
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 600,
+          "temperature": 0.8,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.07476635514018691,
+          "hallucinationScore": 0.36363636363636365,
+          "toxicityScore": 0,
+          "qualityScore": 0.5852591333899745
+        }
+      },
+      {
+        "response": "According to [1_nexora_company_overview.pdf], Nexora Systems offers monitoring, optimization, and governance platforms for large-scale AI deployments. \n\nMore specifically, as mentioned in [8_nexora_client_case_studies.pdf], some of the products include:\n- Nexora ControlHub: monitors AI agents, reducing hallucination incidents and improving response latency, as seen in the case study of a multinational banking organization [8_nexora_client_case_studies.pdf].\n- Nexora AgentFlow: automates tasks, such as shipment tracking queries, reducing manual support workload, as seen in the case study of a logistics company [8_nexora_client_case_studies.pdf].\n- Nexora's retrieval augmented generation infrastructure: provides quick access to medical research documents and treatment guidelines, as seen in the case study of a healthcare provider [8_nexora_client_case_studies.pdf].\n\nThese products solve problems related to deploying and managing AI systems in enterprise environments, including lack of visibility, control, and evaluation of AI models and agents once they are deployed in production, as stated in [1_nexora_company_overview.pdf].",
+        "metrics": {
+          "system": {
+            "latency": 9709,
+            "tokenUsage": {
+              "input": 93,
+              "output": 286,
+              "total": 379
+            },
+            "costPerRequest": 0.0000665
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.36363636363636365,
+            "accuracyScore": 0.07476635514018691,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0.75,
+            "errorRate": 0,
+            "behaviorStability": 0.6863028539771258
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 500,
+          "temperature": 0.8,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.07476635514018691,
+          "hallucinationScore": 0.36363636363636365,
+          "toxicityScore": 0,
+          "qualityScore": 0.5852591333899745
+        }
+      }
+    ],
+    "finalAnswer": "According to [1_nexora_company_overview.pdf], Nexora Systems offers monitoring, optimization, and governance platforms for large-scale AI deployments. \n\nMore specifically, as mentioned in [8_nexora_client_case_studies.pdf], some of the products include:\n- Nexora ControlHub: monitors AI agents, reducing hallucination incidents and improving response latency, as seen in the case study of a multinational banking organization [8_nexora_client_case_studies.pdf].\n- Nexora AgentFlow: automates tasks, such as shipment tracking queries, reducing manual support workload, as seen in the case study of a logistics company [8_nexora_client_case_studies.pdf].\n- Nexora's retrieval augmented generation infrastructure: provides quick access to medical research documents and treatment guidelines, as seen in the case study of a healthcare provider [8_nexora_client_case_studies.pdf].\n\nThese products solve problems related to deploying and managing AI systems in enterprise environments, including lack of visibility, control, and evaluation of AI models and agents once they are deployed in production, as stated in [1_nexora_company_overview.pdf].",
+    "metrics": {
+      "system": {
+        "latency": 9709,
+        "tokenUsage": {
+          "input": 93,
+          "output": 286,
+          "total": 379
+        },
+        "costPerRequest": 0.0000665
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.36363636363636365,
+        "accuracyScore": 0.07476635514018691,
+        "relevanceScore": 1
+      },
+      "stability": {
+        "retryRate": 0.75,
+        "errorRate": 0,
+        "behaviorStability": 0.6863028539771258
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 5000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.7,
+      "minConfidence": 0.8,
+      "responseType": "balanced",
+      "temperature": 0.9
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "bad",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "latency",
+        "title": "Reduce latency",
+        "action": "Lower max tokens (e.g. 400–500) and use the \"Concise\" response type so the agent returns shorter answers faster.",
+        "priority": "high"
+      },
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "hallucination",
+        "title": "Reduce hallucination",
+        "action": "Use prompt v3 (strict RAG) and lower temperature (e.g. 0.2–0.3) for more deterministic, document-grounded answers.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.9 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      }
+    ],
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 500,
+      "temperature": 0.8,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-19T06:51:39.284Z"
+  }
+]
