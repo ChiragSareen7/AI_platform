@@ -4,8 +4,8 @@
   "maxCost": 0.05,
   "minAccuracy": 0.8,
   "maxHallucination": 0.25,
-  "minRelevance": 0.7,
-  "minConfidence": 0.8,
-  "responseType": "balanced",
-  "temperature": 0.9
+  "minRelevance": 0.5,
+  "minConfidence": 0.5,
+  "responseType": "strict",
+  "temperature": 0.7
 }

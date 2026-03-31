@@ -9,11 +9,11 @@
       "usageCount": 11
     },
     "v3": {
-      "avgLatency": 13600.45,
-      "avgTokens": 259.85,
-      "avgAccuracy": 0.14872217918603298,
-      "avgHallucination": 0.41136363636363643,
-      "usageCount": 20
+      "avgLatency": 13171.041666666666,
+      "avgTokens": 254.91666666666663,
+      "avgAccuracy": 0.22993536890887023,
+      "avgHallucination": 0.3636363636363637,
+      "usageCount": 24
     }
   }
 }

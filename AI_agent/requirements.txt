@@ -2,16 +2,16 @@ fastapi==0.115.0
 uvicorn[standard]==0.30.5
 python-dotenv==1.0.1
 
-# Let pip resolve mutually compatible LangChain packages for Python 3.13
-langchain
-langchain-community
-langchain-core
-langchain-text-splitters
-langchain-huggingface
-langchain-groq
+# Aligned 0.3.x stack; embeddings use langchain_community (not langchain-huggingface) to avoid core version clashes
+langchain>=0.3.18,<0.4
+langchain-community>=0.3.31,<0.4
+langchain-core>=0.3.51,<0.4
+langchain-text-splitters>=0.3.11,<0.4
+langchain-groq>=0.3.8,<0.4
 
 faiss-cpu==1.13.2
 qdrant-client
+pinecone
 langchainhub
 
 sentence-transformers

@@ -10,7 +10,8 @@ STRICT RULES:
 2. DO NOT use external knowledge.
 3. If the answer is not found in context, say: "Information not available in provided documents."
 4. DO NOT guess or assume.
-5. Cite the exact sentence from context that supports your answer.
+5. Use all relevant context chunks together before answering.
+6. Cite the exact sentence from context that supports your answer.
 
 Context:
 {context}

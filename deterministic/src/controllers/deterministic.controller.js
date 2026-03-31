@@ -57,12 +57,21 @@ async function deterministicQuery(req, res) {
     result.deterministicCheck = deterministicCheck;
   }
   const logEntry = {
-    query,
+    original_query: query,
     normalizedQuery: result.normalizedQuery,
-    context: result.contextChunks?.length ?? 0,
-    response: result.answer,
+    expandedQuery: result.queryUnderstanding?.expanded_query,
+    intent: result.queryUnderstanding?.intent,
+    retrieved_chunks: (result.contextChunks || []).map((c, i) => ({
+      id: c.id,
+      source: c.source,
+      category: c.category,
+      score: result.similarityScores?.[i] ?? null,
+    })),
+    similarity_scores: result.similarityScores || [],
+    final_answer: result.answer,
     hallucinationScore: result.hallucinationScore,
     similarityScore: result.similarityScore,
+    validationScore: result.validationScore,
     deterministic: deterministicCheck?.isDeterministic ?? null,
     cached: result.cached,
     timestamp: new Date().toISOString(),
@@ -74,11 +83,15 @@ async function deterministicQuery(req, res) {
     source: result.source,
     hallucinationScore: result.hallucinationScore,
     similarityScore: result.similarityScore,
+    validationScore: result.validationScore,
     cached: result.cached,
     contextChunks: result.contextChunks,
     similarityScores: result.similarityScores,
+    retrievalMeta: result.retrievalMeta || null,
     category: result.category,
+    queryUnderstanding: result.queryUnderstanding || null,
     deterministicCheck: result.deterministicCheck || null,
+    sentenceSupport: result.sentenceSupport || null,
   });
 }
 

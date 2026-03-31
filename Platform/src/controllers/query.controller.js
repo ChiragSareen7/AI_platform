@@ -98,7 +98,11 @@ async function runQuery(req, res) {
       console.log('[Query] config updated, retrying...');
     } catch (err) {
       errorOccurred = true;
-      console.error('[Query] attempt', attempt + 1, 'error:', err.message);
+      const msg =
+        (err && typeof err.message === 'string' && err.message.trim()) ||
+        (err && err.code && `${err.code}`) ||
+        String(err);
+      console.error('[Query] attempt', attempt + 1, 'error:', msg);
       lastMetrics = metricsService.buildMetrics({
         errorRate: 1,
         retryRate: attempt / (attempt + 1),
@@ -106,7 +110,7 @@ async function runQuery(req, res) {
       });
       attempts.push({
         response: null,
-        error: err.message,
+        error: msg,
         metrics: lastMetrics,
         promptVersion: currentPromptVersionId,
         config: currentConfig,

@@ -56,3 +56,9 @@ AI_agent/vector_store/faiss_index/
 
 # Cursor local project state
 .cursor/
+
+# Fine-tuned weights (GitHub max 100 MB per file; use Git LFS or host elsewhere)
+models/*_model/model.safetensors
+
+# Next.js build output (do not commit)
+AI_agent/frontend/.next/

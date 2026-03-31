@@ -2,8 +2,7 @@
  * Full deterministic pipeline.
  */
 const config = require('../../config');
-const inputNormalizer = require('./inputNormalizer.service');
-const queryClassifier = require('./queryClassifier.service');
+const queryUnderstandingService = require('./queryUnderstanding.service');
 const retrievalService = require('./retrieval.service');
 const promptService = require('./prompt.service');
 const llmService = require('./llm.service');
@@ -15,14 +14,19 @@ const NO_CONTEXT_MESSAGE = 'No relevant data found.';
 const CONFLICT_MESSAGE = 'Conflicting information found.';
 
 async function runPipeline(query) {
-  const normalizedQuery = inputNormalizer.normalizeInput(query);
-  const category = queryClassifier.getCategory(normalizedQuery);
+  const originalQuery = query;
+  const understanding = await queryUnderstandingService.understandQueryWithAI(query);
+  const normalizedQuery = understanding.normalized_query;
+  const expandedQuery = understanding.expanded_query;
+  const category = understanding.category;
   let contextChunks = [];
   let similarityScores = [];
+  let retrievalMeta = null;
   try {
-    const retrieved = await retrievalService.retrieve(normalizedQuery);
+    const retrieved = await retrievalService.retrieve(expandedQuery || normalizedQuery, understanding);
     contextChunks = retrieved.contextChunks || [];
     similarityScores = retrieved.similarityScores || [];
+    retrievalMeta = retrieved.retrievalMeta || null;
   } catch (err) {
     return {
       answer: NO_CONTEXT_MESSAGE,
@@ -35,6 +39,8 @@ async function runPipeline(query) {
       cached: false,
       category,
       normalizedQuery,
+      queryUnderstanding: understanding,
+      retrievalMeta,
       error: err.message,
     };
   }
@@ -50,6 +56,8 @@ async function runPipeline(query) {
       cached: false,
       category,
       normalizedQuery,
+      queryUnderstanding: understanding,
+      retrievalMeta,
     };
   }
   const contextIds = contextChunks.map((c) => (c.id || c.source || '') + '_' + (c.page ?? ''));
@@ -61,9 +69,12 @@ async function runPipeline(query) {
       cached: true,
       category,
       normalizedQuery,
+      queryUnderstanding: understanding,
+      retrievalMeta,
     };
   }
-  const prompt = promptService.buildPrompt(normalizedQuery, contextChunks);
+  // Answer should be based on the original user query, while retrieval uses expanded query.
+  const prompt = promptService.buildPrompt(originalQuery || expandedQuery || normalizedQuery, contextChunks);
   let rawContent;
   try {
     rawContent = await llmService.execute(prompt);
@@ -79,6 +90,8 @@ async function runPipeline(query) {
       cached: false,
       category,
       normalizedQuery,
+      queryUnderstanding: understanding,
+      retrievalMeta,
       error: err.message,
     };
   }
@@ -91,9 +104,13 @@ async function runPipeline(query) {
     similarityScores,
     hallucinationScore: validated.hallucinationScore,
     similarityScore: validated.similarityScore,
+    validationScore: validated.validationScore,
+    sentenceSupport: validated.sentenceSupport,
     cached: false,
     category,
     normalizedQuery,
+    queryUnderstanding: understanding,
+    retrievalMeta,
   };
   await cacheService.set(normalizedQuery, promptVersion, CONFIG_VERSION, contextIds, result);
   return result;

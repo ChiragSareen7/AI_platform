@@ -2099,5 +2099,1643 @@
       "sessionId": "platform"
     },
     "timestamp": "2026-03-19T06:51:39.284Z"
+  },
+  {
+    "query": "How do Nexora’s products help improve efficiency in real-world use cases?",
+    "attempts": [
+      {
+        "response": "According to the provided documents, Nexora's products help improve efficiency in real-world use cases by providing a platform for building AI systems capable of executing complex workflows, such as financial analysis, legal document review, recruitment screening, and automated reporting. (Source: 2_nexora_products_and_platforms.pdf, page: 1)\n\nSpecifically, the VectorCloud platform is designed to store billions of embeddings while maintaining low latency query performance, which can be used to power retrieval augmented generation pipelines where AI agents must search through large collections of documents to answer user queries. (Source: 2_nexora_products_and_platforms.pdf, page: 1)\n\nAdditionally, the ControlHub platform provides deep visibility into the performance and behavior of large language models and AI agents, allowing organizations to monitor key performance indicators and dynamically adjust prompts, model selection, temperature parameters, and retrieval configurations to optimize their AI systems. (Source: 2_nexora_products_and_platforms.pdf, page: 0)\n\nThe AgentFlow platform also enables organizations to build complex AI agents capable of performing multi-step reasoning tasks, interacting with external APIs, internal databases, document repositories, and enterprise tools, which can help improve efficiency in various real-world use cases. (Source: 2_nexora_products_and_platforms.pdf, page: 0)\n\nHowever, the provided documents do not contain specific examples of real-world use cases where Nexora's products have improved efficiency.",
+        "metrics": {
+          "system": {
+            "latency": 11958,
+            "tokenUsage": {
+              "input": 95,
+              "output": 391,
+              "total": 486
+            },
+            "costPerRequest": 0.0000877
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0.6787878787878788,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.6787878787878788,
+          "hallucinationScore": 0,
+          "toxicityScore": 0,
+          "qualityScore": 0.8875757575757576
+        }
+      }
+    ],
+    "finalAnswer": "According to the provided documents, Nexora's products help improve efficiency in real-world use cases by providing a platform for building AI systems capable of executing complex workflows, such as financial analysis, legal document review, recruitment screening, and automated reporting. (Source: 2_nexora_products_and_platforms.pdf, page: 1)\n\nSpecifically, the VectorCloud platform is designed to store billions of embeddings while maintaining low latency query performance, which can be used to power retrieval augmented generation pipelines where AI agents must search through large collections of documents to answer user queries. (Source: 2_nexora_products_and_platforms.pdf, page: 1)\n\nAdditionally, the ControlHub platform provides deep visibility into the performance and behavior of large language models and AI agents, allowing organizations to monitor key performance indicators and dynamically adjust prompts, model selection, temperature parameters, and retrieval configurations to optimize their AI systems. (Source: 2_nexora_products_and_platforms.pdf, page: 0)\n\nThe AgentFlow platform also enables organizations to build complex AI agents capable of performing multi-step reasoning tasks, interacting with external APIs, internal databases, document repositories, and enterprise tools, which can help improve efficiency in various real-world use cases. (Source: 2_nexora_products_and_platforms.pdf, page: 0)\n\nHowever, the provided documents do not contain specific examples of real-world use cases where Nexora's products have improved efficiency.",
+    "metrics": {
+      "system": {
+        "latency": 11958,
+        "tokenUsage": {
+          "input": 95,
+          "output": 391,
+          "total": 486
+        },
+        "costPerRequest": 0.0000877
+      },
+      "aiQuality": {
+        "hallucinationScore": 0,
+        "accuracyScore": 0.6787878787878788,
+        "relevanceScore": 1
+      },
+      "stability": {
+        "retryRate": 0,
+        "errorRate": 0,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 5000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "strict",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "good",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "latency",
+        "title": "Reduce latency",
+        "action": "Lower max tokens (e.g. 400–500) and use the \"Concise\" response type so the agent returns shorter answers faster.",
+        "priority": "high"
+      },
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.7 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      },
+      {
+        "id": "prompt_choice",
+        "title": "Use better-performing prompt",
+        "action": "Prompt \"v3\" has lower average hallucination (39.2%) than \"v1\". Consider defaulting to \"v3\" for more reliable answers.",
+        "priority": "low"
+      }
+    ],
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-20T05:52:41.952Z"
+  },
+  {
+    "query": "companies that nexora accuired",
+    "attempts": [
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 1,
+            "behaviorStability": 0
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.6,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.75,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      }
+    ],
+    "finalAnswer": "No response from agent.",
+    "metrics": {
+      "system": {
+        "latency": 0,
+        "tokenUsage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "costPerRequest": 0
+      },
+      "aiQuality": {
+        "hallucinationScore": 0,
+        "accuracyScore": 0,
+        "relevanceScore": 0
+      },
+      "stability": {
+        "retryRate": 0.75,
+        "errorRate": 1,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 5000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "strict",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "good",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "good",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.7 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      },
+      {
+        "id": "prompt_choice",
+        "title": "Use better-performing prompt",
+        "action": "Prompt \"v3\" has lower average hallucination (39.2%) than \"v1\". Consider defaulting to \"v3\" for more reliable answers.",
+        "priority": "low"
+      }
+    ],
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-28T09:34:01.866Z"
+  },
+  {
+    "query": "companies that nexora accuired",
+    "attempts": [
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 1,
+            "behaviorStability": 0
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.6,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.75,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      }
+    ],
+    "finalAnswer": "No response from agent.",
+    "metrics": {
+      "system": {
+        "latency": 0,
+        "tokenUsage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "costPerRequest": 0
+      },
+      "aiQuality": {
+        "hallucinationScore": 0,
+        "accuracyScore": 0,
+        "relevanceScore": 0
+      },
+      "stability": {
+        "retryRate": 0.75,
+        "errorRate": 1,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 5000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "strict",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "good",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "good",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.7 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      },
+      {
+        "id": "prompt_choice",
+        "title": "Use better-performing prompt",
+        "action": "Prompt \"v3\" has lower average hallucination (39.2%) than \"v1\". Consider defaulting to \"v3\" for more reliable answers.",
+        "priority": "low"
+      }
+    ],
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-28T09:34:17.237Z"
+  },
+  {
+    "query": "companies that nexora accuired",
+    "attempts": [
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 1,
+            "behaviorStability": 0
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.6,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.75,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      }
+    ],
+    "finalAnswer": "No response from agent.",
+    "metrics": {
+      "system": {
+        "latency": 0,
+        "tokenUsage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "costPerRequest": 0
+      },
+      "aiQuality": {
+        "hallucinationScore": 0,
+        "accuracyScore": 0,
+        "relevanceScore": 0
+      },
+      "stability": {
+        "retryRate": 0.75,
+        "errorRate": 1,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 5000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "strict",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "good",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "good",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.7 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      },
+      {
+        "id": "prompt_choice",
+        "title": "Use better-performing prompt",
+        "action": "Prompt \"v3\" has lower average hallucination (39.2%) than \"v1\". Consider defaulting to \"v3\" for more reliable answers.",
+        "priority": "low"
+      }
+    ],
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-28T09:34:18.506Z"
+  },
+  {
+    "query": "companies that nexora accuired",
+    "attempts": [
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 1,
+            "behaviorStability": 0
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.6,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.75,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      }
+    ],
+    "finalAnswer": "No response from agent.",
+    "metrics": {
+      "system": {
+        "latency": 0,
+        "tokenUsage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "costPerRequest": 0
+      },
+      "aiQuality": {
+        "hallucinationScore": 0,
+        "accuracyScore": 0,
+        "relevanceScore": 0
+      },
+      "stability": {
+        "retryRate": 0.75,
+        "errorRate": 1,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 5000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "strict",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "good",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "good",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.7 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      },
+      {
+        "id": "prompt_choice",
+        "title": "Use better-performing prompt",
+        "action": "Prompt \"v3\" has lower average hallucination (39.2%) than \"v1\". Consider defaulting to \"v3\" for more reliable answers.",
+        "priority": "low"
+      }
+    ],
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-28T09:34:33.435Z"
+  },
+  {
+    "query": "companies that nexora accuired",
+    "attempts": [
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 1,
+            "behaviorStability": 0
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.6,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.75,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      }
+    ],
+    "finalAnswer": "No response from agent.",
+    "metrics": {
+      "system": {
+        "latency": 0,
+        "tokenUsage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "costPerRequest": 0
+      },
+      "aiQuality": {
+        "hallucinationScore": 0,
+        "accuracyScore": 0,
+        "relevanceScore": 0
+      },
+      "stability": {
+        "retryRate": 0.75,
+        "errorRate": 1,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 5000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "strict",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "good",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "good",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.7 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      },
+      {
+        "id": "prompt_choice",
+        "title": "Use better-performing prompt",
+        "action": "Prompt \"v3\" has lower average hallucination (39.2%) than \"v1\". Consider defaulting to \"v3\" for more reliable answers.",
+        "priority": "low"
+      }
+    ],
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-28T09:34:57.374Z"
+  },
+  {
+    "query": "What is Nexora?",
+    "attempts": [
+      {
+        "response": "Nexora Systems is a global artificial intelligence infrastructure company focused on building monitoring, optimization, and governance platforms for large scale AI deployments. [source: 1_nexora_company_overview.pdf, page: 0, score: 0.551]",
+        "metrics": {
+          "system": {
+            "latency": 19617,
+            "tokenUsage": {
+              "input": 80,
+              "output": 60,
+              "total": 140
+            },
+            "costPerRequest": 0.00002
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.25,
+            "accuracyScore": 0.782608695652174,
+            "relevanceScore": 0.39999999999999997
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.39999999999999997,
+          "accuracyScore": 0.782608695652174,
+          "hallucinationScore": 0.25,
+          "toxicityScore": 0,
+          "qualityScore": 0.7114130434782608
+        }
+      }
+    ],
+    "finalAnswer": "Nexora Systems is a global artificial intelligence infrastructure company focused on building monitoring, optimization, and governance platforms for large scale AI deployments. [source: 1_nexora_company_overview.pdf, page: 0, score: 0.551]",
+    "metrics": {
+      "system": {
+        "latency": 19617,
+        "tokenUsage": {
+          "input": 80,
+          "output": 60,
+          "total": 140
+        },
+        "costPerRequest": 0.00002
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.25,
+        "accuracyScore": 0.782608695652174,
+        "relevanceScore": 0.39999999999999997
+      },
+      "stability": {
+        "retryRate": 0,
+        "errorRate": 0,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 5000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "strict",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "good",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "latency",
+        "title": "Reduce latency",
+        "action": "Lower max tokens (e.g. 400–500) and use the \"Concise\" response type so the agent returns shorter answers faster.",
+        "priority": "high"
+      },
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.7 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      },
+      {
+        "id": "prompt_choice",
+        "title": "Use better-performing prompt",
+        "action": "Prompt \"v3\" has lower average hallucination (38.5%) than \"v1\". Consider defaulting to \"v3\" for more reliable answers.",
+        "priority": "low"
+      }
+    ],
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-28T09:57:05.803Z"
+  },
+  {
+    "query": "companies that nexora accuired",
+    "attempts": [
+      {
+        "response": "The provided documents do not contain this information. \n\nThe documents provided only discuss Nexora Systems' products, services, and clients, but do not mention any companies that Nexora has acquired. (Source: 8_nexora_client_case_studies.pdf, 1_nexora_company_overview.pdf)",
+        "metrics": {
+          "system": {
+            "latency": 7293,
+            "tokenUsage": {
+              "input": 84,
+              "output": 69,
+              "total": 153
+            },
+            "costPerRequest": 0.000022200000000000004
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0.3,
+            "relevanceScore": 1
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 1,
+          "accuracyScore": 0.3,
+          "hallucinationScore": 0,
+          "toxicityScore": 0,
+          "qualityScore": 0.755
+        }
+      }
+    ],
+    "finalAnswer": "The provided documents do not contain this information. \n\nThe documents provided only discuss Nexora Systems' products, services, and clients, but do not mention any companies that Nexora has acquired. (Source: 8_nexora_client_case_studies.pdf, 1_nexora_company_overview.pdf)",
+    "metrics": {
+      "system": {
+        "latency": 7293,
+        "tokenUsage": {
+          "input": 84,
+          "output": 69,
+          "total": 153
+        },
+        "costPerRequest": 0.000022200000000000004
+      },
+      "aiQuality": {
+        "hallucinationScore": 0,
+        "accuracyScore": 0.3,
+        "relevanceScore": 1
+      },
+      "stability": {
+        "retryRate": 0,
+        "errorRate": 0,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 5000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "strict",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "good",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "latency",
+        "title": "Reduce latency",
+        "action": "Lower max tokens (e.g. 400–500) and use the \"Concise\" response type so the agent returns shorter answers faster.",
+        "priority": "high"
+      },
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.7 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      },
+      {
+        "id": "prompt_choice",
+        "title": "Use better-performing prompt",
+        "action": "Prompt \"v3\" has lower average hallucination (36.9%) than \"v1\". Consider defaulting to \"v3\" for more reliable answers.",
+        "priority": "low"
+      }
+    ],
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-28T10:08:28.382Z"
+  },
+  {
+    "query": "What is Nexora Systems?",
+    "attempts": [
+      {
+        "response": "Nexora Systems is a global artificial intelligence infrastructure company focused on building monitoring, optimization, and governance platforms for large scale AI deployments. [source: 1_nexora_company_overview.pdf, page: 0, score: 0.633]",
+        "metrics": {
+          "system": {
+            "latency": 5228,
+            "tokenUsage": {
+              "input": 82,
+              "output": 60,
+              "total": 142
+            },
+            "costPerRequest": 0.000020200000000000003
+          },
+          "aiQuality": {
+            "hallucinationScore": 0.25,
+            "accuracyScore": 0.782608695652174,
+            "relevanceScore": 0.6
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 0,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        },
+        "evaluation": {
+          "relevanceScore": 0.6,
+          "accuracyScore": 0.782608695652174,
+          "hallucinationScore": 0.25,
+          "toxicityScore": 0,
+          "qualityScore": 0.7614130434782609
+        }
+      }
+    ],
+    "finalAnswer": "Nexora Systems is a global artificial intelligence infrastructure company focused on building monitoring, optimization, and governance platforms for large scale AI deployments. [source: 1_nexora_company_overview.pdf, page: 0, score: 0.633]",
+    "metrics": {
+      "system": {
+        "latency": 5228,
+        "tokenUsage": {
+          "input": 82,
+          "output": 60,
+          "total": 142
+        },
+        "costPerRequest": 0.000020200000000000003
+      },
+      "aiQuality": {
+        "hallucinationScore": 0.25,
+        "accuracyScore": 0.782608695652174,
+        "relevanceScore": 0.6
+      },
+      "stability": {
+        "retryRate": 0,
+        "errorRate": 0,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 5000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "strict",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "bad",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "good",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "latency",
+        "title": "Reduce latency",
+        "action": "Lower max tokens (e.g. 400–500) and use the \"Concise\" response type so the agent returns shorter answers faster.",
+        "priority": "high"
+      },
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.7 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      },
+      {
+        "id": "prompt_choice",
+        "title": "Use better-performing prompt",
+        "action": "Prompt \"v3\" has lower average hallucination (36.4%) than \"v1\". Consider defaulting to \"v3\" for more reliable answers.",
+        "priority": "low"
+      }
+    ],
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-03-29T09:36:50.917Z"
   }
 ]

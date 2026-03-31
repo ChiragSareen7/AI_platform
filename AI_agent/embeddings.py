@@ -1,6 +1,6 @@
 from typing import Any
 
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 from config import settings
 

@@ -33,6 +33,7 @@ RELEVANCE_THRESHOLD = 0.3
 # Categories for document routing (must match metadata "category")
 CATEGORIES = ("hiring", "products", "policies", "security", "general")
 _QDRANT_CLIENT = None
+_PINECONE_INDEX = None
 
 
 def _category_from_filename(filename: str) -> str:
@@ -351,11 +352,184 @@ def _qdrant_similarity_search_with_scores(
     return results
 
 
+def _get_pinecone_index():
+    global _PINECONE_INDEX
+    if _PINECONE_INDEX is not None:
+        return _PINECONE_INDEX
+
+    try:
+        from pinecone import Pinecone, ServerlessSpec
+    except ImportError as exc:
+        raise ImportError(
+            "pinecone package is not installed. Run: pip install pinecone"
+        ) from exc
+
+    if not settings.pinecone_api_key:
+        raise ValueError("PINECONE_API_KEY is missing for VECTOR_DB_PROVIDER=pinecone")
+
+    pc = Pinecone(api_key=settings.pinecone_api_key)
+    index_name = settings.pinecone_index_name
+    existing = [i.get("name") for i in pc.list_indexes()]
+    if index_name not in existing:
+        logger.info(
+            "Creating Pinecone index '%s' (dim=%d metric=%s cloud=%s region=%s)",
+            index_name,
+            settings.pinecone_dimension,
+            settings.pinecone_metric,
+            settings.pinecone_cloud,
+            settings.pinecone_region,
+        )
+        pc.create_index(
+            name=index_name,
+            dimension=settings.pinecone_dimension,
+            metric=settings.pinecone_metric,
+            spec=ServerlessSpec(
+                cloud=settings.pinecone_cloud,
+                region=settings.pinecone_region,
+            ),
+        )
+    _PINECONE_INDEX = pc.Index(index_name)
+    return _PINECONE_INDEX
+
+
+def _ensure_pinecone_index(embeddings: Any):
+    force_rebuild = os.getenv("FORCE_REBUILD_VECTOR_STORE", "false").lower() == "true"
+    namespace = settings.pinecone_namespace
+    index = _get_pinecone_index()
+
+    # If namespace has vectors and rebuild not forced, reuse.
+    try:
+        stats = index.describe_index_stats()
+        ns_stats = (stats.get("namespaces") or {}).get(namespace) or {}
+        if ns_stats.get("vector_count", 0) > 0 and not force_rebuild:
+            logger.info(
+                "Using existing Pinecone namespace '%s' with %s vectors",
+                namespace,
+                ns_stats.get("vector_count"),
+            )
+            return index
+    except Exception:
+        # Continue with rebuild flow if stats unavailable.
+        pass
+
+    logger.info(
+        "Building Pinecone namespace '%s' (force_rebuild=%s)",
+        namespace,
+        str(force_rebuild),
+    )
+    data_dir = settings.data_dir
+    data_dir.mkdir(parents=True, exist_ok=True)
+    documents = _load_pdfs_from_directory(data_dir)
+    chunks = _chunk_documents(documents) if documents else []
+    logger.info("Total chunks to embed into Pinecone: %d", len(chunks))
+
+    # Clear namespace for deterministic rebuild (ignore if namespace is absent).
+    try:
+        index.delete(delete_all=True, namespace=namespace)
+    except Exception as exc:
+        logger.info("Pinecone namespace clear skipped: %s", str(exc))
+
+    vectors = []
+    if not chunks:
+        vectors.append(
+            {
+                "id": str(uuid.uuid5(uuid.NAMESPACE_URL, "nexora:empty:0")),
+                "values": embeddings.embed_query(""),
+                "metadata": {
+                    "source": "empty",
+                    "category": "general",
+                    "page": 0,
+                    "text": "",
+                },
+            }
+        )
+    else:
+        for idx, chunk in enumerate(chunks):
+            meta = dict(chunk.metadata or {})
+            source = str(meta.get("source", "unknown"))
+            page = int(meta.get("page", 0))
+            pid = str(uuid.uuid5(uuid.NAMESPACE_URL, f"{source}:{page}:{idx}"))
+            vectors.append(
+                {
+                    "id": pid,
+                    "values": embeddings.embed_query(chunk.page_content),
+                    "metadata": {
+                        **meta,
+                        "source": source,
+                        "page": page,
+                        "text": chunk.page_content,
+                    },
+                }
+            )
+
+    batch_size = 100
+    for i in range(0, len(vectors), batch_size):
+        index.upsert(vectors=vectors[i : i + batch_size], namespace=namespace)
+
+    logger.info(
+        "Saved/updated Pinecone index '%s' namespace '%s' with %d vectors",
+        settings.pinecone_index_name,
+        namespace,
+        len(vectors),
+    )
+    return index
+
+
+def _pinecone_similarity_search_with_scores(
+    query: str, k: int, category: str
+) -> List[Tuple[Document, float]]:
+    embeddings = get_embedding_model()
+    index = _ensure_pinecone_index(embeddings)
+    namespace = settings.pinecone_namespace
+    query_vector = embeddings.embed_query(query)
+
+    def _query(filter_value):
+        kwargs = {
+            "vector": query_vector,
+            "top_k": k if filter_value is not None else TOP_K_FALLBACK,
+            "namespace": namespace,
+            "include_values": False,
+            "include_metadata": True,
+        }
+        if filter_value is not None:
+            kwargs["filter"] = {"category": {"$eq": filter_value}}
+        return index.query(**kwargs)
+
+    def _to_results(resp) -> List[Tuple[Document, float]]:
+        matches = list((resp or {}).get("matches", []) or [])
+        # stable sorting for determinism
+        matches.sort(key=lambda m: (-float(m.get("score", 0)), str(m.get("id", ""))))
+        out: List[Tuple[Document, float]] = []
+        for m in matches:
+            meta = dict(m.get("metadata") or {})
+            text = str(meta.get("text", ""))
+            out.append((Document(page_content=text, metadata=meta), float(m.get("score", 0))))
+        return out
+
+    results = _to_results(_query(category))
+    docs_searched = f"category={category} (filtered)"
+    if not results:
+        logger.info("[RAG routing] no results in category; fallback: searching all docs")
+        results = _to_results(_query(None))
+        docs_searched = "all (fallback)"
+    elif float(results[0][1]) < RELEVANCE_THRESHOLD:
+        logger.info(
+            "[RAG routing] best score %.4f < threshold %.2f; fallback: searching all docs",
+            float(results[0][1]),
+            RELEVANCE_THRESHOLD,
+        )
+        results = _to_results(_query(None))
+        docs_searched = "all (fallback)"
+    logger.info("[RAG routing] docs_searched=%s", docs_searched)
+    return results
+
+
 def build_or_load_vector_store() -> Any:
     """
     Build or load the configured vector store provider.
     Providers:
     - qdrant (default)
+    - pinecone
     - faiss
     """
     embeddings = get_embedding_model()
@@ -365,11 +539,14 @@ def build_or_load_vector_store() -> Any:
     if provider == "qdrant":
         # Qdrant retrieval uses direct qdrant-client path.
         return "qdrant"
+    if provider == "pinecone":
+        # Pinecone retrieval uses direct pinecone client path.
+        return "pinecone"
     if provider == "faiss":
         return _build_or_load_faiss_vector_store(embeddings)
 
     raise ValueError(
-        f"Unsupported VECTOR_DB_PROVIDER={provider}. Use 'qdrant' or 'faiss'."
+        f"Unsupported VECTOR_DB_PROVIDER={provider}. Use 'qdrant', 'pinecone', or 'faiss'."
     )
 
 
@@ -386,6 +563,9 @@ def similarity_search_with_scores(
     if provider == "qdrant":
         results = _qdrant_similarity_search_with_scores(query=query, k=k, category=category)
         docs_searched = "qdrant-routed"
+    elif provider == "pinecone":
+        results = _pinecone_similarity_search_with_scores(query=query, k=k, category=category)
+        docs_searched = "pinecone-routed"
     else:
         vector_store = build_or_load_vector_store()
 

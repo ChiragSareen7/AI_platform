@@ -39,6 +39,15 @@ class Settings:
     qdrant_api_key: str | None = os.getenv("QDRANT_API_KEY") or None
     qdrant_port: int = int(os.getenv("QDRANT_PORT", "6333"))
 
+    # Pinecone settings (used when VECTOR_DB_PROVIDER=pinecone)
+    pinecone_api_key: str = os.getenv("PINECONE_API_KEY", "")
+    pinecone_index_name: str = os.getenv("PINECONE_INDEX_NAME", "nexora")
+    pinecone_cloud: str = os.getenv("PINECONE_CLOUD", "aws")
+    pinecone_region: str = os.getenv("PINECONE_REGION", "us-east-1")
+    pinecone_dimension: int = int(os.getenv("PINECONE_DIMENSION", "384"))
+    pinecone_metric: str = os.getenv("PINECONE_METRIC", "cosine")
+    pinecone_namespace: str = os.getenv("PINECONE_NAMESPACE", "nexora-prod")
+
     company_name: str = os.getenv("COMPANY_NAME", "Nexora Systems")
     company_tagline: str = os.getenv(
         "COMPANY_TAGLINE",
