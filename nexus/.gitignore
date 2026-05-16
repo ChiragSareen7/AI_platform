@@ -41,11 +41,6 @@ logs/
 *.log
 *.jsonl
 
-# Runtime JSON stores (local query history — do not commit)
-**/store/logs.json
-**/store/model_performance.json
-store/
-
 # Deterministic runtime store artifacts
 deterministic/store/cache/
 deterministic/store/logs.json

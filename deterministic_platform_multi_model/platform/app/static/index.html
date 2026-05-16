@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi Model Platform</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Multi Model Orchestration Dashboard</h1>
+
+    <section class="card">
+      <h2>Run Query</h2>
+      <div class="row">
+        <input id="queryInput" type="text" placeholder="Ask anything..." />
+        <button id="runBtn">Run</button>
+        <button id="reportBtn" class="secondary">Refresh Report</button>
+      </div>
+      <p id="status" class="status"></p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>Best Response</h3>
+        <div id="bestResponse" class="mono">No query yet.</div>
+      </article>
+
+      <article class="card">
+        <h3>BLUE Metrics</h3>
+        <div id="blueMetrics" class="mono">-</div>
+      </article>
+    </section>
+
+    <section class="card">
+      <h3>All Responses</h3>
+      <div class="table-wrap">
+        <table id="responsesTable">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Prompt</th>
+              <th>Acc (lex)</th>
+              <th>Hall (lex)</th>
+              <th>Sem acc</th>
+              <th>Sem conf</th>
+              <th>Latency</th>
+              <th>Error</th>
+              <th>Answer</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Report</h3>
+      <div id="report" class="mono">-</div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
