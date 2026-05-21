@@ -3737,5 +3737,231 @@
       "sessionId": "platform"
     },
     "timestamp": "2026-03-29T09:36:50.917Z"
+  },
+  {
+    "query": "Explain what Nexus is doing in one paragraph",
+    "attempts": [
+      {
+        "response": null,
+        "error": "Cannot connect to AI agent at http://localhost:8000/chat (connection refused). Start the RAG server: cd AI_agent && python app.py",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0,
+            "errorRate": 1,
+            "behaviorStability": 0
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "Cannot connect to AI agent at http://localhost:8000/chat (connection refused). Start the RAG server: cd AI_agent && python app.py",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.5,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.6,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "Cannot connect to AI agent at http://localhost:8000/chat (connection refused). Start the RAG server: cd AI_agent && python app.py",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.6666666666666666,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      },
+      {
+        "response": null,
+        "error": "Cannot connect to AI agent at http://localhost:8000/chat (connection refused). Start the RAG server: cd AI_agent && python app.py",
+        "metrics": {
+          "system": {
+            "latency": 0,
+            "tokenUsage": {
+              "input": 0,
+              "output": 0,
+              "total": 0
+            },
+            "costPerRequest": 0
+          },
+          "aiQuality": {
+            "hallucinationScore": 0,
+            "accuracyScore": 0,
+            "relevanceScore": 0
+          },
+          "stability": {
+            "retryRate": 0.75,
+            "errorRate": 1,
+            "behaviorStability": 1
+          },
+          "safety": {
+            "toxicityScore": 0
+          },
+          "user": {
+            "userSatisfaction": 0.5
+          }
+        },
+        "promptVersion": "v3",
+        "config": {
+          "maxTokens": 800,
+          "temperature": 0.7,
+          "sessionId": "platform"
+        }
+      }
+    ],
+    "finalAnswer": "Cannot connect to AI agent at http://localhost:8000/chat (connection refused). Start the RAG server: cd AI_agent && python app.py",
+    "metrics": {
+      "system": {
+        "latency": 0,
+        "tokenUsage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "costPerRequest": 0
+      },
+      "aiQuality": {
+        "hallucinationScore": 0,
+        "accuracyScore": 0,
+        "relevanceScore": 0
+      },
+      "stability": {
+        "retryRate": 0.75,
+        "errorRate": 1,
+        "behaviorStability": 1
+      },
+      "safety": {
+        "toxicityScore": 0
+      },
+      "user": {
+        "userSatisfaction": 0.5
+      }
+    },
+    "preferences": {
+      "maxLatency": 5000,
+      "maxTokens": 800,
+      "maxCost": 0.05,
+      "minAccuracy": 0.8,
+      "maxHallucination": 0.25,
+      "minRelevance": 0.5,
+      "minConfidence": 0.5,
+      "responseType": "strict",
+      "temperature": 0.7
+    },
+    "comparison": {
+      "latencyStatus": "good",
+      "accuracyStatus": "bad",
+      "hallucinationStatus": "good",
+      "tokenStatus": "good",
+      "costStatus": "good"
+    },
+    "recommendations": [
+      {
+        "id": "accuracy",
+        "title": "Improve accuracy",
+        "action": "Switch to prompt v2 (more accurate) or v3 (strict RAG-only) in Control Center. Ensure your RAG documents are up to date.",
+        "priority": "high"
+      },
+      {
+        "id": "determinism",
+        "title": "More deterministic outputs",
+        "action": "Lower temperature from 0.7 to 0.2–0.4 in Control Center. Lower temperature reduces randomness and makes responses more consistent.",
+        "priority": "medium"
+      },
+      {
+        "id": "prompt_choice",
+        "title": "Use better-performing prompt",
+        "action": "Prompt \"v3\" has lower average hallucination (36.4%) than \"v1\". Consider defaulting to \"v3\" for more reliable answers.",
+        "priority": "low"
+      }
+    ],
+    "promptVersion": "v3",
+    "config": {
+      "maxTokens": 800,
+      "temperature": 0.7,
+      "sessionId": "platform"
+    },
+    "timestamp": "2026-05-21T20:04:21.615Z"
   }
 ]
