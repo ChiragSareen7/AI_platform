@@ -1,212 +1,145 @@
-# AI Optimization Workspace
+# Multi-Model Orchestration & Evaluation Platform
 
-This repository contains three connected applications:
+## Enterprise AI Reliability Through Systematic Evaluation & Domain-Specific Routing
 
-- `AI_agent` - the Python RAG backend (FastAPI) that loads PDFs, builds vectors, and serves retrieval/chat APIs.
-- `deterministic` - the deterministic execution + validation layer (Node/Express) that calls `AI_agent` retrieval and enforces strict output controls.
-- `Platform` - a UI/control app for observability/tuning (separate from deterministic runtime path).
+## The Problem: Why This Matters
 
-The main production flow for deterministic responses is:
+> **"A wrong answer is much worse than no answer."**
 
-1. User calls `deterministic` API/UI.
-2. `deterministic` calls `AI_agent` `/retrieve` for grounded context.
-3. `deterministic` runs strict prompt + LLM + validation + cache.
-4. Final structured response is returned with scores and metadata.
+Enterprise AI systems demand more than intelligence. They require:
 
----
+1. **Reliability + Capability** in production environments, not just research demos.
+2. **Hallucination-free, consistent reasoning** across queries.
+3. **Trustworthy answers** that do not mislead users or workflows.
+4. **Understanding which model excels at which task**, because domain specialization matters.
 
-## Folder-by-folder overview
+### Key Insight
 
-### `AI_agent/`
+**Models are domain-specialist.**
 
-Python FastAPI service providing RAG retrieval and chat.
+A model trained on Python code thrives on code questions but fails on chemistry. A chemistry expert model excels at organic reactions but struggles with philosophy. No single model performs best across all domains.
 
-- `app.py`
-  - `POST /retrieve`: returns top context chunks + scores (used by `deterministic`).
-  - `POST /chat`: conversational RAG endpoint.
-- `retriever.py`
-  - PDF loading, chunking, vector build/load.
-  - rule-based query category routing.
-  - filtered retrieval + fallback retrieval.
-  - supports vector provider selection (`qdrant` or `faiss`).
-- `embeddings.py`
-  - embedding model setup (`sentence-transformers/all-MiniLM-L6-v2`, normalized vectors).
-- `rag_pipeline.py`
-  - LLM chain for `/chat`.
-- `config.py`
-  - all env-driven runtime settings.
-- `data/`
-  - source PDF knowledge base.
-- `vector_store/`
-  - persisted vector data (`faiss_index/` and/or local qdrant files).
-- `logs/`
-  - request/interaction logs.
-- `frontend/`
-  - Next.js chat UI for direct `AI_agent` testing.
+## The Solution: Intelligent Model Orchestration
 
-### `deterministic/`
+### How It Works
 
-Node/Express app for strict deterministic execution and verification.
+1. **Identify Domain**  
+   Analyze the query to determine its domain, such as Python, Chemistry, Philosophy, or General Knowledge.
 
-- `app.js`
-  - server bootstrap and routes.
-- `src/routes/deterministic.routes.js`
-  - `POST /deterministic-query`.
-- `src/controllers/deterministic.controller.js`
-  - orchestrates request execution, optional determinism test, and logging.
-- `src/services/`
-  - `inputNormalizer.service.js`: deterministic input normalization.
-  - `queryClassifier.service.js`: rule-based category classification.
-  - `retrieval.service.js`: calls `AI_agent` `/retrieve`.
-  - `prompt.service.js`: strict anti-hallucination prompt template.
-  - `llm.service.js`: LLM call with deterministic config.
-  - `validation.service.js`: verifies answer support against context.
-  - `cache.service.js`: stable hash-based cache keying.
-  - `pipeline.service.js`: end-to-end deterministic pipeline.
-  - `test.service.js`: runs same query repeatedly for consistency checks.
-- `src/utils/similarity.js`
-  - Jaccard + cosine similarity functions.
-- `public/deterministic.html`
-  - deterministic dashboard UI.
-- `store/`
-  - runtime logs and cached outputs.
+2. **Route to Specialists**  
+   Send the same query to multiple domain-specialized models simultaneously.
 
-### `Platform/`
+3. **Evaluate & Rank**  
+   Score each response using semantic and lexical metrics. Select the best-performing model for **this specific query**.
 
-Separate control/observability interface and related services/stores.
-Useful for experimentation and metrics, but not the critical path of the deterministic API.
+4. **Learn & Optimize**  
+   Track which models excel at which domains. Continuously improve routing decisions.
 
----
+### Result
 
-## How components connect
+Enterprises understand exactly which model is best for their specific use case and how to leverage it reliably in production.
 
-### Runtime integration
+## Architecture: Two-Service Design
 
-- `deterministic` -> `AI_agent` via:
-  - `AGENT_RETRIEVE_URL=http://localhost:8000/retrieve`
-- `AI_agent` returns:
-  - `contextChunks[]` with `content`, `source`, `page`, `category`, `id`
-  - `similarityScores[]`
-- `deterministic` uses this context to enforce grounded generation.
+### Key Design Choices
 
-### Determinism contract
+1. **Separation of concerns** improves modularity, scalability, and experimentation.
+2. **Multiple prompt variants** such as concise, detailed, and facts-only measure response stability and consistency.
+3. **Context injection** enhances LLM performance by providing grounding vectors, so models understand meaning, not just surface text.
 
-Determinism is achieved by fixing:
+## Evaluation & Query Flow
 
-- normalized input rules
-- rule-based classification
-- retrieval top-k and routing logic
-- prompt template
-- LLM params (`temperature=0`, fixed seed, fixed max tokens)
-- validation rules
-- cache key construction from normalized query + versions + context IDs
+## Transparent Evaluation: No Black Boxes
 
----
+### Why Custom Evaluation Instead of Deep Eval or OpenEvals?
 
-## Qdrant and vectorization details
+1. **Transparency**  
+   We built metrics we understand fully, with no opaque third-party scoring.
 
-### What vectorization means here
+2. **Debuggability**  
+   When a model scores low, we know exactly why.
 
-1. **Load docs** (`PyPDFLoader`): each PDF page becomes a document.
-2. **Attach metadata**:
-   - `source` (file name)
-   - `category` (`hiring`, `products`, `policies`, `security`, `general`)
-3. **Chunk text** (`RecursiveCharacterTextSplitter`):
-   - `chunk_size=1200`
-   - `chunk_overlap=300`
-4. **Embed chunks** with sentence-transformers:
-   - model: `sentence-transformers/all-MiniLM-L6-v2`
-   - normalized embeddings for stable cosine behavior
-5. **Store vectors** in Qdrant collection (cosine distance).
+3. **Control**  
+   We measure what matters for our use cases.
 
-### How Qdrant retrieval works
+## Two Evaluation Layers
 
-- Query -> embedding vector.
-- Detect category from query (rule-based).
-- Search Qdrant with metadata filter on `metadata.category`.
-- Return top `k=3`.
-- Fallback to unfiltered all-doc search when:
-  - no category-filtered results, or
-  - best score below threshold.
+1. **Lexical Layer: Fast & Lightweight**  
+   Keyword overlap, Jaccard similarity, relevance score, and confidence estimation.
 
-This improves latency and relevance by avoiding unnecessary cross-document searches.
+2. **Semantic Layer: Deep & Contextual**  
+   Embedding-based similarity via Sentence Transformers, hallucination detection, and groundedness assessment.
 
----
+### Critical Point
 
-## RAG flow (end-to-end)
+**We rank models based on individual performance per query, not by overall ability.**
 
-### `AI_agent` retrieval flow
+This allows us to identify which model excels at which specific use case.
 
-`query -> detect category -> vector search (filtered) -> fallback (optional) -> top chunks`
+## Query Flow: Step-by-Step
 
-### deterministic flow
+## How Context Enhances Performance
 
-`query -> normalize -> classify -> retrieve context -> strict prompt -> LLM -> validate -> similarity checks -> cache -> final JSON`
+### Context Injection = Better Domain Understanding
 
-Validation rejects unsupported claims and can replace unverified output with safe fallback text.
+1. When we send grounding context such as reference docs, examples, and definitions, LLMs do not just parse surface text. They embed meaning into their reasoning.
+2. This creates better embedding vectors, leading to more accurate, domain-aware responses.
+3. **Result:** Hallucinations decrease and reliability increases.
 
----
+## Technologies, Learnings & Future
 
-## Environment configuration
+## Core Technologies
 
-Do not commit real secrets. Use `.env` locally.
+## Key Learnings
 
-### `AI_agent/.env` important keys
+1. **Reliability > Creativity**  
+   Production AI must prioritize trust, consistency, and accuracy.
 
-- LLM: `GROQ_API_KEY`, `GROQ_MODEL_PRIMARY`
-- embeddings: `EMBEDDING_MODEL_NAME`
-- vector provider:
-  - `VECTOR_DB_PROVIDER=qdrant` (recommended)
-  - `QDRANT_COLLECTION_NAME`
-  - local mode: `QDRANT_PATH`
-  - remote mode: `QDRANT_URL`, `QDRANT_API_KEY`
-- one-time rebuild switch:
-  - `FORCE_REBUILD_VECTOR_STORE=true` (rebuild)
-  - then set back to `false`
+2. **Evaluation Is Critical**  
+   Strong AI systems require systematic evaluation, monitoring, and ranking layers.
 
-### `deterministic/.env` important keys
+3. **Context Is Key**  
+   Providing grounding context makes LLMs understand meaning via embedding vectors, not just surface text.
 
-- `GROQ_API_KEY`
-- `GROQ_MODEL`
-- `AGENT_RETRIEVE_URL` (points to `AI_agent` `/retrieve`)
-- `PORT` (default `3002`)
+4. **Infrastructure > Raw Intelligence**  
+   Shift focus from **"How powerful is the model?"** to **"How reliable is the system around it?"**
 
----
+## Nature of This Project
 
-## Run order (recommended)
+This is an experimentation platform designed to identify core issues in AI reliability and develop practical solutions that will be optimized for production environments at scale.
 
-1. Start `AI_agent`:
-   - `cd AI_agent`
-   - `source ../.venv/bin/activate` (if using shared venv)
-   - first-time rebuild (optional):  
-     `FORCE_REBUILD_VECTOR_STORE=true uvicorn app:app --host 0.0.0.0 --port 8000 --reload`
-   - subsequent runs:  
-     `uvicorn app:app --host 0.0.0.0 --port 8000 --reload`
+## Current Challenges
 
-2. Start deterministic service:
-   - `cd deterministic`
-   - `npm install`
-   - `node app.js`
+1. **Evaluation Complexity**  
+   Scoring AI outputs consistently is harder than generating them.
 
-3. Open deterministic dashboard:
-   - `http://localhost:3002/deterministic.html`
+2. **Hallucination Detection**  
+   Requires heuristic and semantic estimation. No perfect solution exists.
 
----
+3. **Latency**  
+   Multiple model calls increase response time.
 
-## Quick verification checklist
+## Upcoming Roadmap
 
-- `POST http://localhost:8000/retrieve` returns context chunks and scores.
-- `POST http://localhost:3002/deterministic-query` returns strict JSON fields.
-- Category-targeted queries return relevant source docs:
-  - acquisitions -> acquisition/product docs
-  - hiring -> hiring/recruitment docs
-  - products -> product/platform docs
-- deterministic dashboard shows context, scores, cache state, and determinism checks.
+1. **Smart Embedding-Based Routing**  
+   Replace keyword routing with semantic routing for better domain matching.
 
----
+2. **Direct Model Pipeline**  
+   Call models directly within the platform, without external APIs.
 
-## Notes
+3. **Integration with Deep Eval & Open Evals**  
+   Hybrid evaluation combining custom metrics and industry standards.
 
-- If remote Qdrant is unreachable, current retrieval logic can fall back to local Qdrant path.
-- If local Qdrant storage is accessed by multiple processes, run a dedicated Qdrant server for concurrent access.
-- If LLM calls fail in `deterministic`, retrieval can still work; verify Groq key/quota/model.
+4. **Async Parallel Execution**  
+   Reduce latency through concurrent model calls.
+
+5. **Production Deployment**  
+   Docker, Kubernetes, PostgreSQL, and Redis for enterprise-grade infrastructure.
+
+## Conclusion
+
+In the rise of AI, the question is no longer **"How intelligent is this model?"** but **"Can we trust this system?"**
+
+This platform transforms AI from a black box into a transparent, measurable, reliable system. Through systematic evaluation, intelligent routing, and continuous learning, enterprises can confidently deploy AI, knowing exactly which model excels at which task, why it was selected, and how it will perform in production.
+
+> **A wrong answer is much worse than no answer. This platform ensures you get the right answer.**
